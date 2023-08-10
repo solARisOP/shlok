@@ -1,0 +1,20 @@
+General Practitioner (GP)
+Cardiologist
+Gastroenterologist
+Dermatologist
+Neurologist
+Orthopedic Surgeon
+Pediatrician
+Obstetrician/Gynecologist (OB/GYN)
+Urologist
+Nephrologist
+Psychiatrist
+Dentist
+Physiotherapist
+Ophthalmologist
+Allergist/Immunologist
+Pulmonologist
+Surgeon
+Endocrinologist
+ENT Specialist (Ear, Nose, and Throat)
+Neonatologist
