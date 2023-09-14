@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="static/chat_styles.css">
+</head>
+
+<body>
+    <!-- Your webpage content goes here -->
+
+    <!-- Chatbot container -->
+    <div id="chatbot-container">
+        <div id="chatbot-header">
+            <h3>Chatbot</h3>
+            <button id="chatbot-toggle">Toggle</button>
+        </div>
+        <div id="chatbot-body">
+            <div id="chatbot-messages"></div>
+            {% csrf_token %}
+            <input type="text" id="user-input" placeholder="Type your message...">
+            <button id="send-button">Send</button>
+        </div>
+    </div>
+
+    <!-- Include JavaScript -->
+    <script src="static/chat_script.js"></script>
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar-scheduler@6.1.8/index.global.min.js'></script>
+
+</body>
+
+</html>

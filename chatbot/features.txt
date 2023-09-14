@@ -1,17 +1,11 @@
 "defaut": [
-                "greeting",
                 "Booking a Session",
-                "symptoms",
                 "appointment reschedule",
                 "appointment cancel",
-                "Location and Contact",
+		"appointment details",
                 "Feedback and Complaints",
-                "addmission enqiry",
                 "fallback",
-                "service completion",
-                "payment",
-                "Medical Services",
-                "Doctor Information"
+                "service completion"
             ]
 
 "Anything else you want help with"

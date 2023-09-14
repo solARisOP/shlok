@@ -1,616 +1,596 @@
-,message,intent
-0,"I've injured my knee while playing sports, and it's swollen and painful.",symptoms
-1,Could you reschedule the appointment I had fixed at your hospital?,session_reschedule
-2,"I'm interested in seeing one of your doctors, can you tell me the next available date?",book_session
-3,"Hello, dear bot!",greeting
-4,I'd like to know the range of medical services and facilities offered at your hospital.,medical_services
-5,Could you please inform me of the process to request hospital admission for a patient?,addmission_enqiry
-6,Please share the hospitals' location and the contact number with me.,contact_location
-7,Could you please arrange a consultation with one of your doctors for me?,book_session
-8,"Greetings, helpful bot!",greeting
-9,I want to provide feedback about the quality of care during my recent hospital visit.,feedback
-10,I'd like to request hospital admission on behalf of a patient.,addmission_enqiry
-11,Is there a designated email address where I can send my feedback regarding my hospital visit?,feedback
-12,"No, I have no more matters to discuss.",service_completion
-13,Can you please assist me in rescheduling the appointment I had previously made at your hospital?,session_reschedule
-14,I'd like to cancel my appointment at your hospital and reschedule it for another time.,session_cancelation
-15,My baby is experiencing difficulty breathing and requires assistance with respiratory support.,symptoms
-16,I'd appreciate your help in setting up an appointment with one of your doctors.,book_session
-17,I'm afraid I won't be able to make it to my appointment at your hospital. Can we reschedule it?,session_reschedule
-18,I'd like to cancel my appointment at your hospital as something urgent has come up.,session_cancelation
-19,I need to cancel my appointment at your hospital due to personal reasons.,session_cancelation
-20,I have some feedback to share from my recent experience at your hospital.,feedback
-21,"May I request the hospitals' location and the contact number from you, please?",contact_location
-22,"Hi there, chatbot expert!",greeting
-23,Good morning!,greeting
-24,I require the hospitals' location and the contact number. Could you share them?,contact_location
-25,I've been experiencing severe abdominal pain that doesn't improve with medications.,symptoms
-26,"That's sufficient for my needs, thanks.",service_completion
-27,"I've noticed a gradual deformity in the alignment of my spine, and my posture has changed.",symptoms
-28,blah blah blah,fallback
-29,What are the options to pay for this appointment?,payment
-30,"Hi, there, chatbot pal!",greeting
-31,"Are you even a real chatbot, or just some random program generating automated responses?",fallback
-32,"Hello, chat partner!",greeting
-33,I'd be grateful if you could give me the hospitals' location and contact number.,contact_location
-34,"I am interested in having a patient admitted to your hospital, if possible.",addmission_enqiry
-35,I'd like to inquire about the possibility of admitting a patient to your hospital.,addmission_enqiry
-36,"I've been having persistent eye pain and redness, along with increased sensitivity to light.",symptoms
-37,Please share the hospitals' location and the contact number with me.,contact_location
-38,"I'm interested in arranging a consultation with one of your doctors, can you help?",book_session
-39,What's the preferred way to pay for this appointment?,payment
-40,I'm interested in learning about the healthcare services and facilities provided by your hospital.,medical_services
-41,How do I become invisible? Just testing your superpower knowledge.,fallback
-42,Please reschedule the appointment I had confirmed for [date/time] at your hospital.,session_reschedule
-43,Is it possible to book a session with one of your doctors? Your assistance is appreciated.,book_session
-44,"No, that's the end of my inquiries.",service_completion
-45,I'm hoping to request admission for a patient in my care to your hospital.,addmission_enqiry
-46,"I'm looking to book a session with one of your doctors, can you guide me?",book_session
-47,Could you please help me book a session with one of your doctors?,book_session
-48,"No, I'm done with my requests.",service_completion
-49,How can I settle the payment for my upcoming appointment?,payment
-50,Can you please offer the hospitals' location and the contact number?,contact_location
-51,Tell me what medical services and facilities I'll find at your hospital.,medical_services
-52,I'd like to receive instructions on how to pay for this appointment.,payment
-53,"No, that completes our conversation.",service_completion
-54,"I've developed a persistent rash on my skin that is red, itchy, and has spread to different areas.",symptoms
-55,I'd like to cancel my appointment at your hospital and reschedule it.,session_cancelation
-56,Can you guide me on how to book a session with one of your doctors?,book_session
-57,What's the capital of [random city]? Sorry for the random geography question.,fallback
-58,I have a patient who requires medical attention and would like to request admission.,addmission_enqiry
-59,What's the recommended way to pay for this appointment?,payment
-60,Can you recite the first 100 digits of pi? I know it's a random challenge.,fallback
-61,I want to express my feedback about the parking and accessibility at your hospital.,feedback
-62,I want to know what medical services and facilities I can find at your hospital.,medical_services
-63,Is there a feedback form available for my recent experience at your hospital?,feedback
-64,Could you please assist me in rescheduling my appointment at your hospital?,session_reschedule
-65,Can you reschedule the appointment I had reserved at your hospital?,session_reschedule
-66,I'd like to provide feedback about the hospital's discharge planning and transition of care.,feedback
-67,I've been diagnosed with appendicitis and need surgical removal of my appendix.,symptoms
-68,"Hello, clever chatbot!",greeting
-69,Please cancel my appointment at your hospital. I won't be able to make it on [date/time].,session_cancelation
-70,I'm interested in providing feedback about my recent visit to your hospital.,feedback
-71,"I've been having persistent tremors or involuntary movements, especially in my hands.",symptoms
-72,"My baby has developed a persistent rash on their skin, and it seems to be spreading.",symptoms
-73,I'm requesting your assistance in facilitating the admission of a patient to your hospital.,addmission_enqiry
-74,Could you kindly let me know the hospitals' location and the contact number?,contact_location
-75,Can you direct me to the feedback system for my recent hospital visit?,feedback
-76,Please cancel my appointment at your hospital due to unforeseen circumstances.,session_cancelation
-77,I've changed my plans and need to reschedule my appointment at your hospital.,session_reschedule
-78,"I've been feeling extremely fatigued, even after a full night's sleep.",symptoms
-79,What types of medical services and facilities does your hospital have?,medical_services
-80,What's the square root of 576? I need some math help here.,fallback
-81,Please mark my appointment as rescheduled at your hospital.,session_reschedule
-82,"I've been coughing persistently, and the cough is often accompanied by mucus production.",symptoms
-83,Could you assist me in reserving a slot with one of your doctors?,book_session
-84,"I've been feeling fatigued and weak, and I've lost my appetite.",symptoms
-85,I'd like to know the steps to pay for my upcoming appointment.,payment
-86,"That's the conclusion of our conversation, thanks.",service_completion
-87,"Can you help me schedule a session with one of your doctors, please?",book_session
-88,"Hiya, chatbot!",greeting
-89,"Good morning, chatbot friend!",greeting
-90,That's all I was looking for.,service_completion
-91,"I've been experiencing persistent stomach pain and discomfort, especially after eating.",symptoms
-92,Please reschedule the appointment I had set at your hospital. I'll need to schedule another one later.,session_reschedule
-93,Tell me about the payment methods accepted for this appointment.,payment
-94,Can you guide me through the payment process for this appointment?,payment
-95,"No, I'm happy with the information provided.",service_completion
-96,I want to know what medical services and facilities I'll have access to at your hospital.,medical_services
-97,I'm afraid I won't be able to make it to my appointment at your hospital. Can we cancel it?,session_cancelation
-98,Can you explain the healthcare services and facilities available at your hospital?,medical_services
-99,Is it feasible to arrange for a patient's admission to your hospital at this time?,addmission_enqiry
-100,I have a patient who needs immediate medical care and would like to request admission.,addmission_enqiry
-101,I want to know how to make a payment for this appointment.,payment
-102,???,fallback
-103,I'd like to reschedule my appointment at your hospital as something urgent has come up.,session_reschedule
-104,"I have no more points to discuss, thank you.",service_completion
-105,What's the secret to eternal youth? Just curious if you have any age-defying secrets.,fallback
-106,Can you explain the different ways to pay for this appointment?,payment
-107,I'd appreciate your assistance in facilitating the admission of a patient to your hospital.,addmission_enqiry
-108,Can you share information on the healthcare services and facilities you offer?,medical_services
-109,Could you kindly provide me with the hospitals' location and the contact number?,contact_location
-110,Can you assist me in canceling the appointment I scheduled at your hospital?,session_cancelation
-111,Can you understand me? Sometimes it feels like I'm not making much sense with my inquiries.,fallback
-112,How can I share my feedback about the hospital's amenities and accommodations?,feedback
-113,How can I share my feedback about the hospital's follow-up care and support?,feedback
-114,"I have no more issues to raise, thank you.",service_completion
-115,Tell me what medical services and facilities I can find at your hospital.,medical_services
-116,What's the procedure for paying the fees for this appointment?,payment
-117,Can you explain how to make a payment for this appointment?,payment
-118,I need to cancel my upcoming appointment at your hospital.,session_cancelation
-119,"No, I don't need any further explanations.",service_completion
-120,"I don't need anything else, thank you.",service_completion
-121,Could you guide me on the steps to request hospital admission for a patient?,addmission_enqiry
-122,Please cancel the appointment I had confirmed for [date/time] at your hospital.,session_cancelation
-123,I'm hoping to request admission for a patient under my care to your hospital.,addmission_enqiry
-124,"Hello, AI bot!",greeting
-125,"I'm done with my questions, thanks.",service_completion
-126,"My child has been coughing and wheezing, especially at night, and seems to be having difficulty breathing.",symptoms
-127,I'd like to give feedback about the care I received during my hospital visit.,feedback
-128,I need to cancel my appointment at your hospital and find a new suitable time.,session_cancelation
-129,"That's the end of my queries, thanks.",service_completion
-130,"I want to buy a car, but I doubt you can help me with that decision.",fallback
-131,"That covers everything I needed, thank you.",service_completion
-132,"I've noticed shortness of breath and wheezing, especially during physical activities.",symptoms
-133,Could you please arrange a consultation with one of your doctors for me?,book_session
-134,Tell me about the medical services and facilities that I can access at your hospital.,medical_services
-135,What are the accepted payment modes for this appointment?,payment
-136,How can I settle the payment for this upcoming appointment?,payment
-137,How should I go about making the payment for this appointment?,payment
-138,I'd like to provide feedback on the level of care and attention I received at your hospital.,feedback
-139,Can you assist me in canceling the appointment I had previously made at your hospital?,session_cancelation
-140,I'm looking to have a patient admitted to your hospital and would appreciate your guidance.,addmission_enqiry
-141,I'm inquiring about the process for admitting a patient to your hospital.,addmission_enqiry
-142,I'd be grateful if you could provide me with the hospitals' location and the contact number.,contact_location
-143,"Can you tell me a secret? A chatbot with secrets, intriguing.",fallback
-144,"If possible, please share the hospitals' location and contact number with me.",contact_location
-145,I'm curious about the medical services and facilities available at your hospital.,medical_services
-146,I want to know the available payment choices for this appointment.,payment
-147,I'd like to cancel the appointment I had previously booked at your hospital.,session_cancelation
-148,I'm looking to have a patient admitted to your hospital and would appreciate your help.,addmission_enqiry
-149,Can you tell me about the meaning of life according to some famous philosopher?,fallback
-150,Can you assist me in rescheduling the appointment I scheduled at your hospital?,session_reschedule
-151,How should I pay for my confirmed appointment?,payment
-152,What are the healthcare services and facilities that your hospital extends to patients?,medical_services
-153,Can you list the medical services and facilities provided at your hospital?,medical_services
-154,Please reschedule my appointment at your hospital due to unforeseen circumstances.,session_reschedule
-155,"Can you tell me a bedtime story? I know it's a bit childish, but why not?",fallback
-156,Could you provide guidance on how to request hospital admission for a patient?,addmission_enqiry
-157,"I've noticed blood in my urine, and I've had a persistent dull ache in my back.",symptoms
-158,I'd like to inquire about the process of admitting a patient to your hospital.,addmission_enqiry
-159,Please mark my appointment as canceled at your hospital.,session_cancelation
-160,I'd like to reschedule the appointment I scheduled with [doctor's name] at your hospital.,session_reschedule
-161,"I've been experiencing frequent and severe headaches, often accompanied by visual disturbances.",symptoms
-162,I want to provide feedback about the friendliness and professionalism of the staff at your hospital.,feedback
-163,I'm interested in knowing the payment details for this appointment.,payment
-164,How do I proceed with the payment for this confirmed appointment?,payment
-165,"Hey, chat friend!",greeting
-166,I want to ensure I pay for this appointment correctly. Can you help?,payment
-167,Can you cancel the appointment I made for [date/time] at your hospital?,session_cancelation
-168,I'd appreciate the opportunity to give feedback about the waiting times at your hospital.,feedback
-169,Can you guide me through the payment steps for this appointment?,payment
-170,"If you could, please provide me with the hospitals' location and the contact number.",contact_location
-171,"I'm done with my inquiries, thank you.",service_completion
-172,"I've been having limited mobility in my shoulder, and it's causing discomfort and stiffness.",symptoms
-173,"Please, I need to make an appointment with one of your doctors soon.",book_session
-174,I'd like to express my feedback regarding the service I received at your hospital.,feedback
-175,I've changed my plans and need to cancel my appointment at your hospital.,session_cancelation
-176,Please consider this as my formal request to admit a patient to your hospital.,addmission_enqiry
-177,Can you please offer the hospitals' location and the contact number?,contact_location
-178,Is it within your capacity to accommodate the admission of a patient to your hospital?,addmission_enqiry
-179,I'd appreciate it if you could brief me about the medical services and facilities you provide.,medical_services
-180,Tell me about the medical services and facilities that I can avail at your hospital.,medical_services
-181,I've been experiencing recurring ear infections and hearing loss.,symptoms
-182,"May I request the hospitals' location and the contact number from you, please?",contact_location
-183,"No, that's the conclusion of our discussion.",service_completion
-184,Can you please supply me with the hospitals' location and the contact number?,contact_location
-185,Could you assist me in requesting admission for a patient at your hospital?,addmission_enqiry
-186,I need information about the payment arrangements for this appointment.,payment
-187,I have a patient in need of hospitalization and would like to request admission.,addmission_enqiry
-188,Can you help me with my love life? I doubt AI can solve relationship problems.,fallback
-189,"I've been experiencing frequent and painful urination, along with lower abdominal discomfort.",symptoms
-190,I want to cancel my appointment at your hospital and arrange for another date.,session_cancelation
-191,Is there a feedback form or process for my recent hospital visit?,feedback
-192,Can you direct me to the feedback portal for my recent hospital visit?,feedback
-193,"I want to book a consultation with one of your doctors, your guidance is essential.",book_session
-194,I'm seeking assistance in arranging for a patient's admission to your hospital.,addmission_enqiry
-195,I need to cancel the appointment I scheduled at your hospital.,session_cancelation
-196,"I've been experiencing unexplained weight loss, increased thirst, and frequent urination.",symptoms
-197,Could you please disclose the hospitals' location and the contact number?,contact_location
-198,I need the hospitals' location and the contact number. Could you help me out?,contact_location
-199,"Hello, knowledgeable bot!",greeting
-200,I'd like to make an appointment with a doctor from your medical team.,book_session
-201,Can you reschedule the appointment I had booked at your hospital? I need to change the date.,session_reschedule
-202,I'd like to revoke the appointment I scheduled at your hospital.,session_cancelation
-203,Could you guide me on where to give feedback about the hospital's customer service?,feedback
-204,I need to reschedule my appointment at your hospital due to an emergency.,session_reschedule
-205,Tell me about the various healthcare services and facilities at your hospital.,medical_services
-206,"Can I marry you? Just kidding, of course, but let's see how you respond to a random question.",fallback
-207,I want to share my feedback about the hospital's infection control and safety measures.,feedback
-208,Can you cancel the appointment I had booked at your hospital? I need to change the date.,session_cancelation
-209,"I'm interested in seeing a doctor from your medical staff, can you assist?",book_session
-210,I'm interested in knowing about the medical services and facilities offered by your hospital.,medical_services
-211,"What's the best way to make money quickly? Asking for a friend, you know.",fallback
-212,My child has been running a fever for the past two days and is complaining of a sore throat.,symptoms
-213,I'd like to offer feedback about the information and resources provided during my hospital stay.,feedback
-214,I have some feedback about my recent visit to your hospital that I'd like to share.,feedback
-215,Can you provide information about the medical services and facilities you have?,medical_services
-216,"Hi, talkative bot!",greeting
-217,How do I go about paying for my scheduled appointment?,payment
-218,"I've been experiencing chest tightness and discomfort, and it feels harder to take deep breaths.",symptoms
-219,"I've noticed changes in my bowel habits, including diarrhea and constipation.",symptoms
-220,What medical services and facilities do you have for patients' convenience?,medical_services
-221,"I've been feeling extremely sad and hopeless for an extended period, and it's affecting my daily life.",symptoms
-222,I have a patient who needs medical care and would like to request admission to your hospital.,addmission_enqiry
-223,I'm hoping you can assist me in scheduling a doctor's appointment.,book_session
-224,"Hello, friendly AI!",greeting
-225,How do I finalize the payment for this scheduled appointment?,payment
-226,What's the best restaurant in town? I need some local recommendations.,fallback
-227,I'd appreciate it if you could help me arrange a consultation with one of your doctors.,book_session
-228,Is there a platform where I can give feedback about my recent interaction with the hospital's nurses?,feedback
-229,"I've had persistent sinus congestion, facial pain, and post-nasal drip.",symptoms
-230,I've been experiencing sharp pain in my tooth whenever I eat or drink something hot or cold.,symptoms
-231,"I need advice on how to become a millionaire. It's a dream, I guess.",fallback
-232,Can you explain the payment process for this particular appointment?,payment
-233,Good evening!,greeting
-234,Greetings and salutations!,greeting
-235,"What's your favorite color? I know it's a strange question for a chatbot, but I'm curious.",fallback
-236,What medical services and facilities can I expect at your hospital?,medical_services
-237,Please let me know the steps required to request patient admission to your hospital.,addmission_enqiry
-238,"I've noticed bleeding and inflammation in my gums, especially when I brush my teeth.",symptoms
-239,"Good to see you, bot!",greeting
-240,"I've noticed changes in the appearance of a mole, and it has become irregular in shape and color.",symptoms
-241,I want to provide feedback about the cleanliness and hygiene at your hospital.,feedback
-242,"No, I don't require any more assistance.",service_completion
-243,Please assist me in reserving a slot with one of your doctors.,book_session
-244, ,fallback
-245,"I've been experiencing swelling in my legs and ankles, along with frequent urination at night.",symptoms
-246,Is it possible to book an appointment with one of your doctors? I'd appreciate your help.,book_session
-247,I'd like to reschedule the appointment I made at your hospital and find an alternative date.,session_reschedule
-248,I'd like to learn more about the medical services and facilities available at your hospital.,medical_services
-249,Please provide details about the medical services and facilities offered at your hospital.,medical_services
-250,"I don't have any other questions, thanks.",service_completion
-251,Could you assist me in rescheduling my appointment at your hospital?,session_reschedule
-252,I want to cancel my appointment with [doctor's name] at your hospital.,session_cancelation
-253,"No, that covers all my requirements.",service_completion
-254,"Hi, interactive assistant!",greeting
-255,Tell me about the payment options available for this appointment.,payment
-256,I'd like to reschedule the appointment I had previously booked at your hospital.,session_reschedule
-257,"Hey, robot friend!",greeting
-258,,fallback
-259,"I'm interested in arranging a consultation with one of your doctors, can you assist me?",book_session
-260,I have a persistent and large lump or mass on my body that has been growing.,symptoms
-261,"No, I'm content with the service rendered.",service_completion
-262,Is it possible to initiate the process for patient admission to your hospital?,addmission_enqiry
-263,I need to cancel my appointment at your hospital as my plans have changed.,session_cancelation
-264,Please cancel the appointment I had confirmed at your hospital. I'll need to make a fresh appointment.,session_cancelation
-265,Can you guide me on how to book a session with one of your doctors?,book_session
-266,I'd like to learn more about the healthcare services and facilities available at your hospital.,medical_services
-267,Why can't you answer my question properly? It's frustrating when you don't get what I mean.,fallback
-268,How do I time travel? Just wondering if you have any sci-fi tips.,fallback
-269,Tell me about the secret of the Bermuda Triangle. I'm into mysterious stuff.,fallback
-270,Is there a way for me to submit feedback regarding my recent hospital visit?,feedback
-271,Tell me about the payment requirements for this appointment.,payment
-272,What healthcare services and facilities do you have for patients?,medical_services
-273,Please give me an overview of the medical services and facilities at your hospital.,medical_services
-274,"No, I don't have any other queries.",service_completion
-275,"This doesn't make any sense to me; I'm asking about hospital services, and you're talking about weather.",fallback
-276,I need to reschedule my appointment at your hospital. Can we cancel the current one?,session_cancelation
-277,Could you tell me how to submit feedback about the hospital's patient education materials?,feedback
-278,I want to cancel the appointment I had arranged at your hospital.,session_cancelation
-279,"I've had a fever, sore throat, and body aches for the past few days.",symptoms
-280,Could you kindly let me know the hospitals' location and the contact number?,contact_location
-281,"That's the end of our discussion for now, thanks.",service_completion
-282,I'm curious to know about the medical services and facilities available at your hospital.,medical_services
-283,"If you could, please provide me with the hospitals' location and the contact number.",contact_location
-284,Can you list the medical services and facilities provided by your hospital?,medical_services
-285,What are the payment options for this appointment?,payment
-286,"I've noticed changes in my menstrual cycle, including irregular periods and increased facial hair.",symptoms
-287,Please let me know the protocol for requesting patient admission to your hospital.,addmission_enqiry
-288,Why are you not responding properly to my queries? I thought you were supposed to be smart.,fallback
-289,I'd like to cancel the appointment I had scheduled with [doctor's name] at your hospital.,session_cancelation
-290,I'm looking for the hospitals' location and the contact number. Could you assist?,contact_location
-291,"Hi, bot, ready to chat?",greeting
-292,"What's the formula for calculating velocity? Oh, I see, you're not a physics expert.",fallback
-293,I'd appreciate your help in setting up an appointment with one of your doctors.,book_session
-294,Tell me what types of medical services and facilities are available at your hospital.,medical_services
-295,How can I offer feedback about my recent visit to your hospital?,feedback
-296,Could you cancel the appointment I had fixed at your hospital?,session_cancelation
-297,I'd be grateful if you could provide me with the hospitals' location and the contact number.,contact_location
-298,"I've been experiencing severe anxiety and panic attacks, even in normal situations.",symptoms
-299,I'd appreciate the opportunity to give feedback about my recent hospital experience.,feedback
-300,Please give me an overview of the healthcare services and facilities at your hospital.,medical_services
-301,"No, I don't need any more details.",service_completion
-302,Please share the hospitals' location and the contact number with me.,contact_location
-303,Tell me about your family or your creators; I'm curious about the minds behind this AI.,fallback
-304,"Please, I need to reserve a session with one of your doctors.",book_session
-305,I want to change the date of the appointment I made at your hospital.,session_reschedule
-306,Is it possible to schedule a doctor's appointment at your hospital?,book_session
-307,"Can you teach me how to fly? I'm just kidding, of course.",fallback
-308,Tell me about the various medical services and facilities at your hospital.,medical_services
-309,Could you guide me on where to give feedback about the hospital's medical tests and diagnostics?,feedback
-310,Can you reschedule the appointment I made for [date/time] at your hospital?,session_reschedule
-311,I'd like to discuss the option of having a patient admitted to your hospital.,addmission_enqiry
-312,What's the recipe for a magic potion? Maybe you can create some digital magic.,fallback
-313,"What's the weather like today? Oh, wait, I think I got the wrong chatbot for that.",fallback
-314,"No, I don't have any additional questions.",service_completion
-315,I'm in need of the hospitals' location and the contact number. Could you assist?,contact_location
-316,I've been feeling unusually fatigued and have had a decreased appetite.,symptoms
-317,I've decided to change the date of my appointment at your hospital.,session_reschedule
-318,"I have no further requests, thank you.",service_completion
-319,Can you please give me the hospitals' location and the contact number?,contact_location
-320,What medical services and facilities are accessible at your hospital?,medical_services
-321,I want to provide feedback on the responsiveness and attentiveness of the hospital staff.,feedback
-322,"I have no further requests, thank you.",service_completion
-323,"I've been experiencing persistent back pain, especially after sitting for long periods.",symptoms
-324,What's the process for making a payment for my appointment?,payment
-325,"Hi, buddy!",greeting
-326,"Greetings, chatbot!",greeting
-327,"Would you mind sharing the hospitals' location and the contact number, please?",contact_location
-328,I'd like to reschedule my appointment at your hospital and arrange for another date.,session_reschedule
-329,I'm inquiring about the possibility of admitting a patient to your hospital.,addmission_enqiry
-330,Tell me how to finalize the payment for this appointment.,payment
-331,"No, I have no further inquiries.",service_completion
-332,"Hi, virtual assistant!",greeting
-333,"I want to make an appointment with one of your doctors, can you provide the necessary details?",book_session
-334,What types of healthcare services and facilities does your hospital have?,medical_services
-335,I have a patient in need of hospitalization and would like to request their admission.,addmission_enqiry
-336,"I need to set up a meeting with one of your doctors, your help is valued.",book_session
-337,How can I proceed with the payment for my appointment?,payment
-338,Do you like pizza? I wonder if AI chatbots have food preferences.,fallback
-339,What medical services and facilities are accessible to patients at your hospital?,medical_services
-340,"Hey, AI buddy!",greeting
-341,I feel a pounding sensation in my chest and it's accompanied by shortness of breath.,symptoms
-342,"May I request the hospitals' location and the contact number from you, please?",contact_location
-343,"I've noticed changes in my sleep patterns, appetite, and energy levels, and I'm losing interest in activities I used to enjoy.",symptoms
-344,Can you please reschedule the appointment I had arranged at your hospital?,session_reschedule
-345,Can you speak English? I hope you're not using some alien language I can't comprehend.,fallback
-346,I'd appreciate the chance to give feedback on the hospital's discharge process.,feedback
-347,"Hey, chatbot, nice to see you!",greeting
-348,"No, that's all I needed help with.",service_completion
-349,Could you tell me how to submit feedback about my recent hospital visit?,feedback
-350,I'd appreciate it if you could brief me about the healthcare services and facilities you offer.,medical_services
-351,I want to provide feedback on the facilities and services at your hospital.,feedback
-352,I'm hoping you can help me book an appointment with one of your doctors.,book_session
-353,"No, I'm satisfied with the support received.",service_completion
-354,What payment options are there for this scheduled appointment?,payment
-355,I am formally requesting admission to your hospital on behalf of a patient.,addmission_enqiry
-356,Please reschedule the appointment I had set for [date/time] at your hospital.,session_reschedule
-357,I need to reschedule my appointment at your hospital and find a new available slot.,session_reschedule
-358,Please consider this as my official request for patient admission to your hospital.,addmission_enqiry
-359,"I'm feeling sad, and I thought talking to a chatbot might cheer me up, but it seems it won't work.",fallback
-360,Please consider this as my official request for hospital admission on behalf of a patient.,addmission_enqiry
-361,Please cancel my appointment at your hospital. I won't be able to make it.,session_cancelation
-362,Can you cancel the appointment I had reserved at your hospital?,session_cancelation
-363,I'm unable to keep my appointment at your hospital. Can you help me reschedule it?,session_reschedule
-364,"I've been experiencing blurry vision, especially when trying to read or focus on objects.",symptoms
-365,I'm looking to arrange for a patient's admission to your hospital.,addmission_enqiry
-366,What's the airspeed velocity of an unladen swallow? An old-school Monty Python reference!,fallback
-367,I'd like to discuss the possibility of admitting a patient to your hospital.,addmission_enqiry
-368,Good afternoon!,greeting
-369,"I have no further matters, thank you.",service_completion
-370,"Hey, smart bot, how can you assist me?",greeting
-371,"What's up, bot?",greeting
-372,I wanted to share my feedback about my recent hospital visit.,feedback
-373,I'm looking for the hospitals' location and contact number. Could you help me out?,contact_location
-374,Please let me know the steps required to request admission for a patient at your hospital.,addmission_enqiry
-375,"I'm satisfied with the resolution, thanks.",service_completion
-376,"I need help with my personal problems, but I guess you're just a chatbot, not a therapist.",fallback
-377,"What's the meaning of life? I know it's a deep question, but I thought I'd give it a shot.",fallback
-378,Can you help me cancel the appointment I made at your hospital?,session_cancelation
-379,I want to cancel the appointment I made at your hospital and book a new one.,session_cancelation
-380,I need to cancel my appointment at your hospital due to an emergency.,session_cancelation
-381,I'd like to know the various medical services and facilities at your hospital.,medical_services
-382,I need to reschedule my appointment at your hospital as my plans have changed.,session_reschedule
-383,Could you assist me in canceling my appointment at your hospital?,session_cancelation
-384,I require the hospitals' location and the contact number. Could you share them?,contact_location
-385,"Hi there, amazing bot!",greeting
-386,"Hey, virtual buddy!",greeting
-387,I'd appreciate the opportunity to give feedback about the hospital's pharmacy services.,feedback
-388,"Hi, there, clever bot!",greeting
-389,Please cancel the appointment I made at your hospital. I won't be able to attend.,session_cancelation
-390,Please cancel my appointment at your hospital as my plans have changed.,session_cancelation
-391,What's the best diet for losing weight? A chatbot nutritionist might be helpful!,fallback
-392,"I've missed my menstrual periods, and I'm experiencing nausea and fatigue.",symptoms
-393,I want to share my feedback about the billing and administrative process at your hospital.,feedback
-394,"Well, hello there!",greeting
-395,Can you provide information on the payment methods for this appointment?,payment
-396,I'm interested in knowing the accepted payment options for this appointment.,payment
-397,Can you provide information on the payment process for this appointment?,payment
-398,"Hey, how are you?",greeting
-399,"I don't require any more details, thanks.",service_completion
-400,How can I make the necessary payment for this appointment?,payment
-401,Is there a specific way to provide feedback about my recent hospital stay?,feedback
-402,I need to reschedule my appointment at your hospital due to personal reasons.,session_reschedule
-403,"I'd like to schedule a session with one of your doctors, please help me.",book_session
-404,Please reschedule the appointment I made at your hospital. I won't be able to attend.,session_reschedule
-405,I need the hospitals' location and the contact number. Could you help me out?,contact_location
-406,My newborn baby was born prematurely and requires specialized care due to their early arrival.,symptoms
-407,I'm looking for the hospitals' location and the contact number. Can you provide them?,contact_location
-408,I'd appreciate it if you could give me the hospitals' location and the contact number.,contact_location
-409,How tall is the Eiffel Tower? Just testing your general knowledge.,fallback
-410,I'd appreciate the chance to give feedback on my recent experience at your hospital.,feedback
-411,Hi!,greeting
-412,I need your assistance in setting up an appointment with one of your doctors.,book_session
-413,"Hi there, chatbot!",greeting
-414,I'm formally requesting hospital admission for a patient who requires medical attention.,addmission_enqiry
-415,"I've noticed changes in my urine color, and I'm experiencing pain or discomfort in my lower back.",symptoms
-416,What's the meaning of this word? I feel like I'm in a dictionary mode now.,fallback
-417,"I want to book a consultation with one of your doctors, please guide me.",book_session
-418,I'm unable to keep my appointment at your hospital. Can you help me cancel it?,session_cancelation
-419,I'm no longer able to make it to the appointment at your hospital. Can we cancel it?,session_cancelation
-420,"Can you help me schedule a session with one of your doctors, please?",book_session
-421,"Well, hello, chatbot genius!",greeting
-422,"I'm interested in seeing one of your doctors, can you provide me with the next available slot?",book_session
-423,Is there a platform or email where I can send my feedback regarding my hospital visit?,feedback
-424,Is there a survey or questionnaire for me to provide feedback about my hospital experience?,feedback
-425,I'm good with the information provided.,service_completion
-426,I'd like to reschedule the appointment I had scheduled with [doctor's name] at your hospital.,session_reschedule
-427,Can you help me reschedule the appointment I made at your hospital?,session_reschedule
-428,I've been having irregular vaginal bleeding between periods.,symptoms
-429,Can you explain the medical services and facilities available at your hospital?,medical_services
-430,"That's all for this interaction, thank you.",service_completion
-431,"That's all for now, thanks.",service_completion
-432,I want to change the date of my previously arranged appointment at your hospital.,session_reschedule
-433,"Would you mind sharing the hospital's location and contact number, please?",contact_location
-434,I'd like to cancel the appointment I made at your hospital and schedule a new one.,session_cancelation
-435,Please reschedule the appointment I booked at your hospital. Something came up.,session_reschedule
-436,"I've been experiencing recurrent sneezing, runny nose, and itchy, watery eyes, especially in certain environments.",symptoms
-437,I'm satisfied with the help received.,service_completion
-438,I need to reschedule my upcoming appointment at your hospital.,session_reschedule
-439,Please assist me in reserving a session with one of your doctors.,book_session
-440,How can I proceed with the payment for my confirmed appointment?,payment
-441,"What's the meaning of the universe? I know, I know, it's a big question.",fallback
-442,What payment modes are available for me to pay for this appointment?,payment
-443,What healthcare services and facilities do you have for patients' convenience?,medical_services
-444,"I'm looking to book a session with one of your doctors, can you tell me how to proceed?",book_session
-445,"I'm looking to reserve a slot with one of your doctors, can you provide available dates?",book_session
-446,I want to make an appointment with a doctor from your medical team.,book_session
-447,I want to change the date of my appointment at your hospital and find a more suitable time.,session_reschedule
-448,Is it possible to admit a patient to your hospital upon my request?,addmission_enqiry
-449,Would you be able to give me the hospitals' location and the contact number?,contact_location
-450,I need to reschedule the appointment I scheduled at your hospital.,session_reschedule
-451,I've decided to cancel my appointment at your hospital.,session_cancelation
-452,Tell me about the healthcare services and facilities available at your hospital.,medical_services
-453,"Hey, helpful virtual friend!",greeting
-454,Please cancel the appointment I had set for [date/time] at your hospital.,session_cancelation
-455,"Please, I need to make an appointment with one of your doctors as soon as possible.",book_session
-456,Tell me about the healthcare services and facilities that I can avail at your hospital.,medical_services
-457,"No, that's all I wanted to discuss.",service_completion
-458,Could you please assist me in canceling my appointment at your hospital?,session_cancelation
-459,How can I offer feedback on the efficiency and organization of your hospital?,feedback
-460,"That covers all my requirements, thanks.",service_completion
-461,"Hey, virtual friend!",greeting
-462,I'm content with the assistance provided.,service_completion
-463,I'd like to reschedule my appointment at your hospital and find a new suitable date.,session_reschedule
-464,What are the healthcare services and facilities that your hospital extends?,medical_services
-465,What options do I have for paying for this appointment?,payment
-466,Could you please disclose the hospitals' location and the contact number?,contact_location
-467,Hey!,greeting
-468,I've recently suffered a sports injury and my ankle is swollen and painful.,symptoms
-469,Can you guide me on how to make an appointment with one of your doctors?,book_session
-470,Is there a specific procedure for requesting hospital admission for a patient?,addmission_enqiry
-471,"Yo, bot!",greeting
-472,My newborn has jaundice and requires monitoring and treatment to manage their bilirubin levels.,symptoms
-473,I've been experiencing sudden hair loss and the skin on my scalp is becoming scaly.,symptoms
-474,"I've been experiencing persistent joint pain and stiffness, particularly in my knees and hips.",symptoms
-475,I have a persistent bad taste in my mouth and bad breath despite regular oral hygiene.,symptoms
-476,Can I share my thoughts and feedback on my recent hospital visit with you?,feedback
-477,What's the process for completing the payment for this appointment?,payment
-478,Can you please cancel the appointment I had arranged at your hospital?,session_cancelation
-479,Could you kindly let me know the hospitals' location and the contact number?,contact_location
-480,"No, that's everything I was looking for.",service_completion
-481,Please cancel the appointment I made at your hospital.,session_cancelation
-482,I'm interested in having a patient admitted to your hospital and would like your assistance.,addmission_enqiry
-483,I need to cancel the appointment I had confirmed at your hospital.,session_cancelation
-484,"I often feel bloated and have frequent indigestion, even with smaller meals.",symptoms
-485,"That's everything I wanted to confirm, thanks.",service_completion
-486,Tell me the details for making the payment for this appointment.,payment
-487,"That's all I wanted to verify, thank you.",service_completion
-488,"Do you have any pets? Or do chatbots have digital pets, if that's even a thing?",fallback
-489,Can you share information on the medical services and facilities you provide?,medical_services
-490,"I've been having difficulty swallowing, and I feel a lump in my throat.",symptoms
-491,I'd like to cancel my appointment at your hospital and make a new reservation.,session_cancelation
-492,I'd like to give feedback about the communication with the medical staff during my visit.,feedback
-493,I'd like to give feedback about the hospital's pain management and comfort measures.,feedback
-494,How are you doing today?,greeting
-495,I'm looking for the hospitals' location and the contact number. Could you assist?,contact_location
-496,"No, that's sufficient for now.",service_completion
-497,I need guidance on how to pay for my scheduled appointment.,payment
-498,Could you assist me in reserving a slot with one of your doctors?,book_session
-499,"Please, I need to make an appointment to see one of your doctors.",book_session
-500,Could you guide me on the process for requesting hospital admission for a patient?,addmission_enqiry
-501,I need to understand how to pay for my confirmed appointment.,payment
-502,I want to change the date of the appointment I had arranged at your hospital.,session_reschedule
-503,"Howdy, chatbot!",greeting
-504,"Hello, intelligent assistant!",greeting
-505,Please provide details about the medical services and facilities extended by your hospital.,medical_services
-506,Could you provide information on how to request hospital admission for a patient?,addmission_enqiry
-507,Can you please provide me with the hospitals' location and the contact number?,contact_location
-508,"Greetings, virtual chat assistant!",greeting
-509,"No, that's all I wanted to clarify.",service_completion
-510,Who won the World Series in 1953? Let's see if you have historical sports knowledge.,fallback
-511,"Can you predict my future? You know, like a digital fortune teller.",fallback
-512,Can you please furnish me with the hospitals' location and the contact number?,contact_location
-513,I've been experiencing sharp chest pain that radiates to my left arm.,symptoms
-514,Please enlighten me on the medical services and facilities available at your hospital.,medical_services
-515,What are the medical services and facilities you offer to patients?,medical_services
-516,What are the healthcare services and facilities that your hospital offers to patients?,medical_services
-517,"I'm not sure what to ask, I'm just trying to see how you respond to different types of questions.",fallback
-518,Can you provide me with the payment instructions for this appointment?,payment
-519,Could you please help me arrange a consultation with one of your doctors?,book_session
-520,I'd like to reschedule my appointment at your hospital and find a new convenient date.,session_reschedule
-521,I need to set up a meeting with one of your doctors. Can you assist me?,book_session
-522,"I've had a persistent cough and congestion, and my energy levels are lower than usual.",symptoms
-523,Tell me a joke or something amusing; I could use a good laugh right now.,fallback
-524,What payment methods can I use to pay for this appointment?,payment
-525,Please consider this as my formal request for patient admission to your hospital.,addmission_enqiry
-526,Please reschedule the appointment I made at your hospital.,session_reschedule
-527,"I've noticed weakness or numbness in one side of my body, along with difficulty speaking.",symptoms
-528,I'm having difficulty controlling my urine flow and often experience leakage.,symptoms
-529,Can you guide me on how to make an appointment with one of your doctors?,book_session
-530,"I need the hospitals' location and contact number. Can you provide them, please?",contact_location
-531,I'm no longer able to make it to the appointment at your hospital. Can we reschedule it?,session_reschedule
-532,"Hi there, helpful bot!",greeting
-533,I'm hoping you can help me arrange a doctor's appointment at your hospital.,book_session
-534,Could you please share the hospital's location and contact number with me?,contact_location
-535,I've noticed sudden flashes of light and floating spots in my field of vision.,symptoms
-536,Tell me about the payment procedures for this appointment.,payment
-537,I'd like to share my feedback about the medical staff during my recent hospital visit.,feedback
-538,"What's the meaning of this dream I had last night? I know, it's a bit personal.",fallback
-539,"I'd like to schedule a consultation with one of your doctors, can you help?",book_session
-540,Can you recommend a good movie to watch? I'm in the mood for something entertaining.,fallback
-541,I want to change the date of my appointment at your hospital and find a new one.,session_reschedule
-542,Can you please give me the hospitals' location and the contact number?,contact_location
-543,Please reschedule my appointment at your hospital. I won't be able to make it on [date/time].,session_reschedule
-544,I want to cancel the appointment I made for [date/time] at your hospital.,session_cancelation
-545,Is it feasible to arrange for a patient's admission to your hospital at this time?,addmission_enqiry
-546,Please reschedule my appointment at your hospital as my plans have changed.,session_reschedule
-547,"What's the best way to win the lottery? I know it's a long shot, but any tips?",fallback
-548,I want to cancel my previously arranged appointment at your hospital.,session_cancelation
-549,Hello there!,greeting
-550,Please let me know the necessary steps to request hospital admission for a patient.,addmission_enqiry
-551,Could you guide me on how to give feedback about my recent hospital visit?,feedback
-552,How's my favorite AI today?,greeting
-553,Tell me how to make a secure payment for this appointment.,payment
-554,Please cancel the appointment I booked at your hospital. Something came up.,session_cancelation
-555,I'm formally requesting hospital admission for a patient under my responsibility.,addmission_enqiry
-556,"I don't require any more help, thanks.",service_completion
-557,Could you help me schedule an appointment with one of your doctors?,book_session
-558,I've had sudden episodes of dizziness and fainting.,symptoms
-559,I've developed hives and skin rashes after consuming certain foods or coming into contact with specific substances.,symptoms
-560,"No, I have no more issues to address.",service_completion
-561,"Hi there, digital companion!",greeting
-562,How can I offer feedback on the hospital's communication and information sharing with patients?,feedback
-563,Please cancel the appointment I had set at your hospital. I'll need to schedule another one later.,session_cancelation
-564,I need to reschedule the appointment I had confirmed at your hospital.,session_reschedule
-565,"Where is Atlantis located? I know it's a myth, but let's play along.",fallback
-566,Can you please offer the hospitals' location and the contact number?,contact_location
-567,What are the healthcare services and facilities that your hospital extends to patients?,medical_services
-568,Please give me an overview of the healthcare services and facilities at your hospital.,medical_services
-569,I want to change the date of my appointment with [doctor's name] at your hospital.,session_reschedule
-570,Please reschedule my appointment at your hospital. I won't be able to make it.,session_reschedule
-571,I'm satisfied with the assistance.,service_completion
-572,I'd like to reschedule my appointment at your hospital and book a new one.,session_reschedule
-573,"No, that's all for this interaction.",service_completion
-574,Can you list the healthcare services and facilities provided at your hospital?,medical_services
-575,I'd like to offer feedback about the overall patient experience during my hospital visit.,feedback
-576,"If possible, please share the hospitals' location and the contact number.",contact_location
-577,What's the cure for a broken heart? A chatbot's response might not be enough.,fallback
-578,I am seeking admission for a patient to your esteemed hospital.,addmission_enqiry
-579,I'm pregnant and experiencing heavy bleeding and abdominal pain.,symptoms
-580,Who is the president of [random country]? Just thought I'd test your knowledge.,fallback
-581,"That's all I needed from you, thank you.",service_completion
-582,I need to find a new date for my appointment at your hospital. Can we reschedule it?,session_reschedule
-583,"I'm interested in booking a session with one of your doctors, can you assist?",book_session
-584,I'm interested in knowing about the healthcare services and facilities offered by your hospital.,medical_services
-585,"If you could, please provide me with the hospitals' location and the contact number.",contact_location
-586,What are the available payment methods for this appointment?,payment
-587,Can you assist me in scheduling a doctor's appointment at your facility?,book_session
-588,Could you please provide information on how to request hospital admission for a patient?,addmission_enqiry
-589,"I'm lost, can you help me find my way home? I hope you have a digital GPS.",fallback
-590,I require the hospitals' location and the contact number. Could you share them?,contact_location
-591,"Hello, smart AI!",greeting
-592,Please enlighten me on the healthcare services and facilities at your hospital.,medical_services
-593,Can you assist me with the process of providing feedback about the hospital's dietary services?,feedback
-594,Can you assist me with the process of providing feedback about my recent hospital visit?,feedback
-595,I'd like to share my feedback about the medical equipment and facilities at your hospital.,feedback
-596,I'm interested in initiating the process for patient admission to your hospital.,addmission_enqiry
-597,"I want to book an appointment with one of your doctors, can you guide me through the process?",book_session
-598,Would you mind giving me the hospitals' location and the contact number?,contact_location
-599,"If possible, please share the hospitals' location and the contact number.",contact_location
-600,I'd like to cancel my appointment at your hospital and reschedule it for a later date.,session_cancelation
-601,Could you guide me on how to proceed with the request for hospital admission for a patient?,addmission_enqiry
-602,"Would you mind sharing the hospitals' location and the contact number, please?",contact_location
-603,"How's it going, chatbot?",greeting
-604,"I've been having difficulty breathing and wheezing, especially when exposed to pollen or pet dander.",symptoms
-605,Please reschedule the appointment I had confirmed at your hospital. I'll need to make a fresh appointment.,session_reschedule
-606,I'm looking to request admission for a patient who needs medical care at your hospital.,addmission_enqiry
-607,What are the payment arrangements for this scheduled appointment?,payment
-608,Is it possible to schedule a doctor's appointment at your hospital?,book_session
-609,How do I go about paying for this appointment I just booked?,payment
-610,"I don't need any additional information, thanks.",service_completion
-611,I'm looking for the hospitals' location and the contact number. Can you provide them?,contact_location
-612,Would you be able to give me the hospitals' location and the contact number?,contact_location
-613,Can you please furnish me with the hospitals' location and the contact number?,contact_location
-614,"Can you do my homework? Just kidding, I know you're not a cheating machine.",fallback
+,message,intent,label
+0,I want to plan my visit to the doctor,book_session,5
+1,I was hoping to provide some thoughts.,feedback,6
+2,I need to cancel my appointment.,session_cancelation,4
+3,Could you help me reschedule my last appointment?,session_reschedule,3
+4,How do I time travel? Just wondering if you have any sci-fi tips.,fallback,0
+5,"Greetings, chatbot!",greeting,2
+6,"Hi, bot, ready to chat?",greeting,2
+7,"Good morning, chatbot friend!",greeting,2
+8,"Tell me about my booking, if you could.",session_status,7
+9,Please give me the details of my session.,session_status,7
+10,Please mark my appointment as canceled at your hospital.,session_cancelation,4
+11,Can you update me on the status of my appointment?,session_status,7
+12,"No, I'm done here",service_completion,1
+13,I'm stuck.,fallback,0
+14,I was hoping to provide feedback on this.,feedback,6
+15,I was looking to give feedback.,feedback,6
+16,"I don't require any more help, thanks.",service_completion,1
+17,"Well, hello, chatbot genius!",greeting,2
+18,Could you please help me reschedule my appointment?,session_reschedule,3
+19,I'm hoping you can cancel my appointment.,session_cancelation,4
+20,I'm good with the information provided.,service_completion,1
+21,I have some feedback about my recent visit to your hospital that I'd like to share.,feedback,6
+22,"No, that's enough",service_completion,1
+23,"I'm hoping you can cancel my appointment, when you're able to.",session_cancelation,4
+24,Can you help me move my appointment to another time?,session_reschedule,3
+25,"Can you teach me how to fly? I'm just kidding, of course.",fallback,0
+26,Could you reschedule the appointment I had fixed at your hospital?,session_reschedule,3
+27,I'm interested in canceling my appointment.,session_cancelation,4
+28,I want to reschedule my last appointment slot.,session_reschedule,3
+29,I'm uncertain.,fallback,0
+30,"No, I don't have any other queries.",service_completion,1
+31,"Give me the booking details, if you would.",session_status,7
+32,Please furnish me with a thorough breakdown of the appointment details.,session_status,7
+33,I'm confused.,fallback,0
+34,I need to cancel my upcoming appointment at your hospital.,session_cancelation,4
+35,Try again?,fallback,0
+36,"No, that's sufficient for now.",service_completion,1
+37,Could you help me book a doctor's visit,book_session,5
+38,"No, that's all I needed help with.",service_completion,1
+39,"No, that's everything",service_completion,1
+40,Can I share my thoughts?,feedback,6
+41,I'm interested in my session. What's available?,session_status,7
+42,"Please, I need to make an appointment with one of your doctors as soon as possible.",book_session,5
+43,"No, that's all for this service",service_completion,1
+44,"Can you help me schedule a session with one of your doctors, please?",book_session,5
+45,I need to find a new date for my appointment at your hospital. Can we reschedule it?,session_reschedule,3
+46,"Hey, AI buddy!",greeting,2
+47,I'm feeling overwhelmed.,fallback,0
+48,Feeling stuck.,fallback,0
+49,I need to cancel the appointment I had confirmed at your hospital.,session_cancelation,4
+50,I wanted to give some feedback about this.,feedback,6
+51,Can I share my thoughts and feedback on my recent hospital visit with you?,feedback,6
+52,I want to reschedule my appointment slot.,session_reschedule,3
+53,I wanted to offer some thoughts.,feedback,6
+54,Share my session information with me.,session_status,7
+55,"Please, I need to make an appointment to see one of your doctors.",book_session,5
+56,"Hello, chat partner!",greeting,2
+57,Good evening!,greeting,2
+58,"No, I'm happy with the information provided.",service_completion,1
+59,"No, I'm content",service_completion,1
+60,I'm not following.,fallback,0
+61,Need more clarity.,fallback,0
+62,"No, that's all I'm aiming for",service_completion,1
+63,"No, that's all for now with this",service_completion,1
+64,Can you offer a detailed status I've secured for my upcoming medical visit?,session_status,7
+65,I'd like to make an appointment with a doctor from your medical team.,book_session,5
+66,I'm satisfied with the assistance.,service_completion,1
+67,I've decided to cancel my appointment at your hospital.,session_cancelation,4
+68,I'm interested in setting up a meeting with a doctor,book_session,5
+69,I wanted to provide some feedback.,feedback,6
+70,I'd like to offer feedback about the overall patient experience during my hospital visit.,feedback,6
+71,"Can you help me by canceling my appointment, if you're in a position to?",session_cancelation,4
+72,What's the airspeed velocity of an unladen swallow? An old-school Monty Python reference!,fallback,0
+73,I was hoping to give some feedback.,feedback,6
+74,Could you assist me in confirming my appointment,book_session,5
+75,Could you assist me in setting up my doctor's appointment,book_session,5
+76,Could you assist me in reserving a slot with one of your doctors?,book_session,5
+77,I'm curious about the details of my booking.,session_status,7
+78,Need more info.,fallback,0
+79,Can you update me on my session?,session_status,7
+80,Can you recite the first 100 digits of pi? I know it's a random challenge.,fallback,0
+81,Can I shift the time of my appointment to another slot?,session_reschedule,3
+82,Can you help me pick a slot for a doctor's visit,book_session,5
+83,Can you help me cancel my appointment?,session_cancelation,4
+84,Is it possible to schedule a doctor's appointment at your hospital?,book_session,5
+85,Could you provideinformation about the booking I've made for my medical consultation?,session_status,7
+86,"Hello, intelligent assistant!",greeting,2
+87,How can I share my feedback about the hospital's amenities and accommodations?,feedback,6
+88,What's next?,fallback,0
+89,"That's all for now, thanks.",service_completion,1
+90,I'm keen on obtaining the details on session I've arranged for my healthcare needs.,session_status,7
+91,"Hey, robot friend!",greeting,2
+92,"No, I don't need any further explanations.",service_completion,1
+93,"No, that's all I wanted to discuss.",service_completion,1
+94,Is it possible to set up a medical appointment,book_session,5
+95,Is there a way to cancel my appointment?,session_cancelation,4
+96,I was looking to provide feedback on this.,feedback,6
+97,provide me details of booking I've made for my medical assessment.,session_status,7
+98,"I want to cancel my appointment, when you're prepared.",session_cancelation,4
+99,Can I share some feedback?,feedback,6
+100,This is unclear.,fallback,0
+101,"no, nothing else",service_completion,1
+102,I need to reschedule the appointment I scheduled at your hospital.,session_reschedule,3
+103,"Could you assist me with canceling my appointment, when you're ready?",session_cancelation,4
+104,I'd like to reserve a meeting with a doctor,book_session,5
+105,"I need advice on how to become a millionaire. It's a dream, I guess.",fallback,0
+106,Is it possible to shift my last appointment to another time?,session_reschedule,3
+107,I'd like to revoke the appointment I scheduled at your hospital.,session_cancelation,4
+108,I'm seeking details appointment I've booked at the hospital.,session_status,7
+109,"No, no more",service_completion,1
+110,Hello there!,greeting,2
+111,"No, that's it",service_completion,1
+112,I'm looking to shift my appointment to a new time.,session_reschedule,3
+113,"Tell me more about my session, please.",session_status,7
+114,Can you provide me with my appointment details?,session_status,7
+115,"I need to cancel my appointment, when you're available.",session_cancelation,4
+116,Can I change the time of my last appointment?,session_reschedule,3
+117,Please share details of appointment I've confirmed,session_status,7
+118,"What's the meaning of this dream I had last night? I know, it's a bit personal.",fallback,0
+119,Could you help me schedule an appointment with one of your doctors?,book_session,5
+120,Help please.,fallback,0
+121,I'd like to reschedule the appointment I had previously booked at your hospital.,session_reschedule,3
+122,I need to confirm a doctor's visit,book_session,5
+123,"Provide me with my session details, please.",session_status,7
+124,"No, that's the conclusion of our discussion.",service_completion,1
+125,This is unclear to me.,fallback,0
+126,Can I provide some feedback on this?,feedback,6
+127,Please cancel my appointment at your hospital as my plans have changed.,session_cancelation,4
+128,Can you guide?,fallback,0
+129,I need to reschedule my appointment at your hospital. Can we cancel the current one?,session_cancelation,4
+130,"Hi there, chatbot expert!",greeting,2
+131,"Could you cancel my appointment, when you're in a position to?",session_cancelation,4
+132,I had thoughts I wanted to share.,feedback,6
+133,Please cancel my appointment at your hospital due to unforeseen circumstances.,session_cancelation,4
+134,I'd like to cancel my appointment at your hospital and reschedule it for another time.,session_cancelation,4
+135,I need to select my preferred time for a doctor's visit,book_session,5
+136,Please mark my appointment as rescheduled at your hospital.,session_reschedule,3
+137,I was looking to give some thoughts on this.,feedback,6
+138,I'm no longer able to make it to the appointment at your hospital. Can we reschedule it?,session_reschedule,3
+139,"No, that's all I need",service_completion,1
+140,details of session I've arranged for my healthcare needs at the hospital.,session_status,7
+141,"No, that's everything I need",service_completion,1
+142,I need to reschedule my appointment.,session_reschedule,3
+143,Not sure.,fallback,0
+144,I'm baffled.,fallback,0
+145,"Could you cancel my appointment, if possible?",session_cancelation,4
+146,I'd like to reschedule my last scheduled appointment.,session_reschedule,3
+147,I want to change the time of my appointment.,session_reschedule,3
+148,I was hoping to share some feedback.,feedback,6
+149,I'm interested in locking in a doctor's appointment,book_session,5
+150,Can I provide some feedback?,feedback,6
+151,"No, that's all for this issue",service_completion,1
+152,I'd like to reschedule the appointment I scheduled at your hospital.,session_reschedule,3
+153,Can I provide some thoughts?,feedback,6
+154,"No, that's the end",service_completion,1
+155,"Hi, there, clever bot!",greeting,2
+156,give me details of my appointment,session_status,7
+157,Is it possible to book an appointment with one of your doctors? I'd appreciate your help.,book_session,5
+158,I need to set up a meeting with one of your doctors. Can you assist me?,book_session,5
+159,"I'm interested in seeing one of your doctors, can you provide me with the next available slot?",book_session,5
+160,Lost track.,fallback,0
+161,Is there a feedback form or process for my recent hospital visit?,feedback,6
+162,I'm looking to shift my last appointment to a new time.,session_reschedule,3
+163,"Hey, helpful virtual friend!",greeting,2
+164,"No, that's all for this request",service_completion,1
+165,"No, I'm finished here",service_completion,1
+166,I'm not sure.,fallback,0
+167,I'd like to mark a date for a doctor's appointment,book_session,5
+168,blah blah blah,fallback,0
+169,???,fallback,0
+170,I want to book a consultation with a doctor,book_session,5
+171,Please guide me.,fallback,0
+172,Can you update me on my booking details?,session_status,7
+173,I'd like to reschedule my last appointment.,session_reschedule,3
+174,Can you assist me in booking a doctor's slot,book_session,5
+175,Please help.,fallback,0
+176,I'm seeking to request an appointment with a doctor,book_session,5
+177,tell date and time of my appointment.,session_status,7
+178,"Please provide a comprehensive overview of the appointment I've confirmed,",session_status,7
+179,,fallback,0
+180,"Can you predict my future? You know, like a digital fortune teller.",fallback,0
+181,"No, that completes our conversation.",service_completion,1
+182,"Hey, virtual friend!",greeting,2
+183,"Howdy, chatbot!",greeting,2
+184,Is it possible to lock my appointment with a doctor,book_session,5
+185,Hi!,greeting,2
+186,"Hi, interactive assistant!",greeting,2
+187,Please reschedule my appointment at your hospital as my plans have changed.,session_reschedule,3
+188,Can I offer some feedback?,feedback,6
+189,Please explain.,fallback,0
+190,Would you be able to cancel my appointment?,session_cancelation,4
+191,I'm interested in moving my appointment to a new time.,session_reschedule,3
+192,I'm interested in moving my last appointment to a different time.,session_reschedule,3
+193,I'm curious about my booking. Tell me more.,session_status,7
+194,I want to secure a time for a doctor's appointment,book_session,5
+195,I want to change the date of the appointment I had arranged at your hospital.,session_reschedule,3
+196,I'm afraid I won't be able to make it to my appointment at your hospital. Can we cancel it?,session_cancelation,4
+197,"No, that's all I'm after",service_completion,1
+198,Can you shed light?,fallback,0
+199,"Tell me about my session, please.",session_status,7
+200,"I want to book a consultation with one of your doctors, please guide me.",book_session,5
+201,"No, that's all for today",service_completion,1
+202,"No, that's all",service_completion,1
+203,"Can you assist me in canceling my appointment, please?",session_cancelation,4
+204,"No, I'm okay",service_completion,1
+205,I'm interested in my appointment. What's available?,session_status,7
+206,Could you assist me in choosing a doctor's appointment,book_session,5
+207,"Could you cancel my appointment, when it's suitable for you?",session_cancelation,4
+208,"Good to see you, bot!",greeting,2
+209,I'm interested in my booking. Can you provide details?,session_status,7
+210,Can you assist me in scheduling a doctor's appointment at your facility?,book_session,5
+211,"No, I'm happy with that",service_completion,1
+212,What now?,fallback,0
+213,I want to learn more about my session.,session_status,7
+214,Can you assist me in booking a doctor's consultation,book_session,5
+215,"No, I'm happy",service_completion,1
+216,I'm feeling lost.,fallback,0
+217,Please share the booking details with me.,session_status,7
+218,that's it,service_completion,1
+219,Can I give feedback?,feedback,6
+220,I want to reserve a spot for a doctor's appointment,book_session,5
+221,I'm having difficulties.,fallback,0
+222,"I have no further requests, thank you.",service_completion,1
+223,I had some feedback to share.,feedback,6
+224,Could you cancel the appointment I had fixed at your hospital?,session_cancelation,4
+225,"Share the details of my session, if you can.",session_status,7
+226,Is it okay if I change the time of my last appointment?,session_reschedule,3
+227,Could you please assist me in canceling my appointment?,session_cancelation,4
+228,I'm not grasping it.,fallback,0
+229,"No, that's the extent of it",service_completion,1
+230,I wanted to give some thoughts.,feedback,6
+231,I want to cancel my appointment.,session_cancelation,4
+232,I need to choose a doctor's consultation,book_session,5
+233,"No, I'm content with this",service_completion,1
+234,I'm interested in arranging my time for a doctor's visit,book_session,5
+235,"I'd like to be informed about my booking, please.",session_status,7
+236,Could you assist me in canceling my appointment at your hospital?,session_cancelation,4
+237,I'd like to share my feedback about the medical staff during my recent hospital visit.,feedback,6
+238,Can I provide feedback?,feedback,6
+239,I need to cancel my appointment as soon as possible.,session_cancelation,4
+240,I had feedback I wanted to share.,feedback,6
+241,Tell me about the secret of the Bermuda Triangle. I'm into mysterious stuff.,fallback,0
+242,I'm having trouble.,fallback,0
+243,Please cancel the appointment I made at your hospital.,session_cancelation,4
+244,I'm looking for information on my appointment.,session_status,7
+245,I want to cancel my previously arranged appointment.,session_cancelation,4
+246,Lost here.,fallback,0
+247,I'd like to arrange my time for a doctor's visit,book_session,5
+248,I'm struggling.,fallback,0
+249,"Can you tell me a bedtime story? I know it's a bit childish, but why not?",fallback,0
+250,I'd appreciate information on my appointment specifics.,session_status,7
+251,"I'm lost, can you help me find my way home? I hope you have a digital GPS.",fallback,0
+252,I'm looking to pick a slot for a doctor's appointment,book_session,5
+253,"I want to book an appointment with one of your doctors, can you guide me through the process?",book_session,5
+254,I'd appreciate it if you could help me arrange a consultation with one of your doctors.,book_session,5
+255,"I'm interested in booking a session with one of your doctors, can you assist?",book_session,5
+256,"Hey, how are you?",greeting,2
+257,What's available for my session?,session_status,7
+258,"I want to cancel my appointment, when it's suitable.",session_cancelation,4
+259,Could you please assist me in changing the time of my appointment?,session_reschedule,3
+260,Can you guide me through booking a doctor's appointment,book_session,5
+261,"Hey, virtual buddy!",greeting,2
+262,I need to reschedule my appointment that was previously set.,session_reschedule,3
+263,What's the secret to eternal youth? Just curious if you have any age-defying secrets.,fallback,0
+264,I want to cancel the appointment I made for [date/time] at your hospital.,session_cancelation,4
+265,"No, that's all for this concern",service_completion,1
+266,give session details session I've arranged for my healthcare consultation.,session_status,7
+267,Is there a way to choose a doctor's appointment,book_session,5
+268,Could you provide me with details of session I've scheduled for my health assessment?,session_status,7
+269,Please reschedule the appointment I made at your hospital.,session_reschedule,3
+270,"No, that's all for this",service_completion,1
+271,Could you please arrange a consultation with one of your doctors for me?,book_session,5
+272,"No, I'm all set",service_completion,1
+273,Can you help me cancel the appointment I made at your hospital?,session_cancelation,4
+274,"No, I'm finished",service_completion,1
+275,"No, I don't have any additional questions.",service_completion,1
+276,I'd like to give feedback about the care I received during my hospital visit.,feedback,6
+277,"I don't need anything else, thank you.",service_completion,1
+278,Can you help me book a doctor's consultation,book_session,5
+279,that's all,service_completion,1
+280,I wanted to give feedback on this.,feedback,6
+281,"No, that's the end of my inquiries.",service_completion,1
+282,I had some feedback to give.,feedback,6
+283,I'd like to cancel my appointment.,session_cancelation,4
+284,How can I offer feedback about my recent visit to your hospital?,feedback,6
+285,I want to change the date of my previously arranged appointment at your hospital.,session_reschedule,3
+286,"What's the formula for calculating velocity? Oh, I see, you're not a physics expert.",fallback,0
+287,I'm seeking to lock in my appointment with a doctor,book_session,5
+288,that's enough for now,service_completion,1
+289,I'm looking for details of session I've booked at the hospital,session_status,7
+290,Can I change the time of my appointment?,session_reschedule,3
+291,Provide me with information on my session.,session_status,7
+292,I'd greatly appreciate if you provide details of the session I've booked,session_status,7
+293,"Give me the appointment information, please.",session_status,7
+294,"Hello, knowledgeable bot!",greeting,2
+295,Need direction.,fallback,0
+296,Can you reschedule the appointment I made at your hospital?,session_reschedule,3
+297,"No, that's fine",service_completion,1
+298,I want to cancel the appointment I had arranged at your hospital.,session_cancelation,4
+299,Could you assist me in rescheduling my appointment?,session_reschedule,3
+300,Can you help me with changing the time of my appointment?,session_reschedule,3
+301,"I need to cancel my appointment, when you're ready.",session_cancelation,4
+302,Can you help me plan my doctor's appointment,book_session,5
+303,I want to reschedule my appointment that was previously scheduled.,session_reschedule,3
+304,Is it possible to shift my appointment to another time?,session_reschedule,3
+305,I had thoughts to share.,feedback,6
+306,I'd like to reschedule my appointment to a different time.,session_reschedule,3
+307,"I want to cancel my appointment, if you're prepared.",session_cancelation,4
+308,"No, I'm good now",service_completion,1
+309,I'd like to express my feedback regarding the service I received at your hospital.,feedback,6
+310,"No, that's complete",service_completion,1
+311,Can you share the details of my appointment?,session_status,7
+312,I'd appreciate the chance to give feedback on my recent experience at your hospital.,feedback,6
+313,I'd like to reschedule the appointment I had scheduled at your hospital.,session_reschedule,3
+314,Hey!,greeting,2
+315,Confused here.,fallback,0
+316,"Where is Atlantis located? I know it's a myth, but let's play along.",fallback,0
+317,"I'd like to schedule a consultation with one of your doctors, can you help?",book_session,5
+318,How do I become invisible? Just testing your superpower knowledge.,fallback,0
+319,Is there a way to request my time for a doctor's appointment,book_session,5
+320,"No, I have no further inquiries.",service_completion,1
+321,"I'm interested in arranging a consultation with one of your doctors, can you help?",book_session,5
+322,I'm looking information on appointment I've booked at the hospital,session_status,7
+323,"No, that's all for this matter",service_completion,1
+324,"No, I'm satisfied",service_completion,1
+325,"Hiya, chatbot!",greeting,2
+326,I want to provide feedback about the quality of care during my recent hospital visit.,feedback,6
+327,I need to reschedule the appointment I had confirmed at your hospital.,session_reschedule,3
+328,I was hoping to share my thoughts.,feedback,6
+329,I've changed my plans and need to cancel my appointment at your hospital.,session_cancelation,4
+330,"Hey, chat friend!",greeting,2
+331,I was looking to offer some feedback on this.,feedback,6
+332,Is it possible to change the time of my appointment?,session_reschedule,3
+333,I'd greatly appreciate it give details booking I've made for my medical examination.,session_status,7
+334,Could you provide info on session I've scheduled for my health evaluation?,session_status,7
+335,Tell me what you can about my booking.,session_status,7
+336,I need to schedule an appointment with a physician,book_session,5
+337,"Can you assist me in canceling my appointment, when you're free?",session_cancelation,4
+338,Can you cancel the appointment I had reserved at your hospital?,session_cancelation,4
+339,Is there a specific way to provide feedback about my recent hospital stay?,feedback,6
+340,What's there to know about my session?,session_status,7
+341,Can you help me by canceling my appointment?,session_cancelation,4
+342,How's my favorite AI today?,greeting,2
+343,Can you help me reschedule the appointment I made at your hospital?,session_reschedule,3
+344,Could I share my feedback?,feedback,6
+345,Can I provide my thoughts?,feedback,6
+346,I don't get it.,fallback,0
+347,I want to cancel my previously arranged appointment at your hospital.,session_cancelation,4
+348,What can you tell me about my session details?,session_status,7
+349,I need to reschedule my upcoming appointment at your hospital.,session_reschedule,3
+350,Can you reschedule the appointment I had reserved at your hospital?,session_reschedule,3
+351,"No, that's all for this interaction.",service_completion,1
+352,Please provide me with my appointment specifics.,session_status,7
+353,"No, that's all I want",service_completion,1
+354,Can you explain?,fallback,0
+355,"Hi, talkative bot!",greeting,2
+356,Need assistance.,fallback,0
+357,I've changed my plans and need to reschedule my appointment at your hospital.,session_reschedule,3
+358,"Hello, smart AI!",greeting,2
+359,I need to secure my time for a doctor's visit,book_session,5
+360,Can you please cancel my scheduled appointment?,session_cancelation,4
+361,Who won the World Series in 1953? Let's see if you have historical sports knowledge.,fallback,0
+362,I'm no longer able to make it to the appointment at your hospital. Can we cancel it?,session_cancelation,4
+363,I was looking to offer feedback.,feedback,6
+364,"Could you please cancel my appointment, if you can?",session_cancelation,4
+365,Can you help me out by canceling my appointment?,session_cancelation,4
+366,I'd like to know the appointment specifics.,session_status,7
+367,I'd appreciate details on my session.,session_status,7
+368,"No, I'm content with that",service_completion,1
+369,I'd appreciate if you could cancel my appointment.,session_cancelation,4
+370,I want to confirm my preferred time for a doctor's appointment,book_session,5
+371,I'm hoping you can help me arrange a doctor's appointment at your hospital.,book_session,5
+372,Can you help me move my appointment to another time?,session_reschedule,3
+373,I need to move my last appointment to another time.,session_reschedule,3
+374,"No, that's all done",service_completion,1
+375,Can you guide me on how to make an appointment with one of your doctors?,book_session,5
+376,I was hoping to share feedback with you.,feedback,6
+377,"No, all set",service_completion,1
+378,Can you assist me in changing the time of my appointment?,session_reschedule,3
+379,"I'd like to cancel my appointment, if you don't mind.",session_cancelation,4
+380,I had some feedback to provide.,feedback,6
+381,Not making sense.,fallback,0
+382,What's the square root of 576? I need some math help here.,fallback,0
+383,I'd like to schedule a doctor's appointment,book_session,5
+384,Can I share feedback?,feedback,6
+385,"No, I'm done with my requests.",service_completion,1
+386,I wanted to provide my feedback.,feedback,6
+387,I want to change the date of the appointment I made at your hospital.,session_reschedule,3
+388,"Tell me more about my booking, please.",session_status,7
+389,"no, that's all",service_completion,1
+390,I was hoping to offer feedback.,feedback,6
+391,nothing elese,service_completion,1
+392,nope,service_completion,1
+393,Could you tell me how to submit feedback about my recent hospital visit?,feedback,6
+394,Could you give me the details of my session?,session_status,7
+395,"No, I'm done with this",service_completion,1
+396,I'd like to be informed about my session.,session_status,7
+397,Is it okay to change the time of my appointment?,session_reschedule,3
+398,"Greetings, virtual chat assistant!",greeting,2
+399,Is it okay if I change the time of my appointment?,session_reschedule,3
+400,"I need to cancel my appointment, when it's comfortable for you.",session_cancelation,4
+401,No,service_completion,1
+402,"What's the best way to make money quickly? Asking for a friend, you know.",fallback,0
+403,I'm afraid I won't be able to make it to my appointment at your hospital. Can we reschedule it?,session_reschedule,3
+404,I'm seeking to arrange a doctor's appointment,book_session,5
+405,Could you please assist me in rescheduling my appointment at your hospital?,session_reschedule,3
+406,"I'm looking to reserve a slot with one of your doctors, can you provide available dates?",book_session,5
+407,"No, I'm done",service_completion,1
+408,Could you please help me book a session with one of your doctors?,book_session,5
+409,"No, that's all for this query",service_completion,1
+410,I was looking to provide feedback.,feedback,6
+411,What's happening?,fallback,0
+412,This is confusing.,fallback,0
+413,Can you offer a detailed breakdown of the booking I have scheduled?,session_status,7
+414,I need to reschedule my last appointment that was previously set.,session_reschedule,3
+415,I wanted to share my feedback about my recent hospital visit.,feedback,6
+416,I'd like to cancel the appointment I had scheduled with [doctor's name] at your hospital.,session_cancelation,4
+417,Could you please assist me in canceling my appointment at your hospital?,session_cancelation,4
+418, ,fallback,0
+419,"No, I have no more issues to address.",service_completion,1
+420,Could you cancel my appointment when you have time?,session_cancelation,4
+421,"No, I'm satisfied with that",service_completion,1
+422,Can I offer some thoughts?,feedback,6
+423,I'd like to confirm an appointment with a doctor,book_session,5
+424,I'm looking to cancel my appointment.,session_cancelation,4
+425,I have some feedback to share from my recent experience at your hospital.,feedback,6
+426,What's the answer?,fallback,0
+427,"Hi, virtual assistant!",greeting,2
+428,I want to select a time for a doctor's visit,book_session,5
+429,I wanted to offer some feedback.,feedback,6
+430,Can you recommend a good movie to watch? I'm in the mood for something entertaining.,fallback,0
+431,I want to change the time of my last appointment.,session_reschedule,3
+432,"That covers everything I needed, thank you.",service_completion,1
+433,"Hello, dear bot!",greeting,2
+434,Could I share my thoughts?,feedback,6
+435,Can I shift the time of my last appointment to another slot?,session_reschedule,3
+436,Please cancel the appointment I booked at your hospital. Something came up.,session_cancelation,4
+437,I'd appreciate the opportunity to give feedback about my recent hospital experience.,feedback,6
+438,I'd like to reschedule my appointment to a different time.,session_reschedule,3
+439,Can you elaborate?,fallback,0
+440,Can you cancel the appointment I made for [date/time] at your hospital?,session_cancelation,4
+441,"No, that's all I'm expecting",service_completion,1
+442,Could you furnish me with the details on session I've scheduled for my health assessment?,session_status,7
+443,"How's it going, chatbot?",greeting,2
+444,I want to cancel my appointment with you.,session_cancelation,4
+445,Can I arrange a visit with a doctor,book_session,5
+446,I want to know more about my booking.,session_status,7
+447,I'm feeling confused.,fallback,0
+448,I wanted to give some feedback on this.,feedback,6
+449,I'm interested in getting on the doctor's calendar,book_session,5
+450,"Hello, AI bot!",greeting,2
+451,Could you help me reschedule my appointment?,session_reschedule,3
+452,"No, that's all I have",service_completion,1
+453,"No, that's all for this task",service_completion,1
+454,Provide me with the specifics of my booking.,session_status,7
+455,I'd like to cancel the appointment I had previously booked at your hospital.,session_cancelation,4
+456,"No, that's the whole deal",service_completion,1
+457,I'm hitting a wall.,fallback,0
+458,Can you provide a detailed breakdown of the booking I've secured for my upcoming medical check-up?,session_status,7
+459,Can you help me with my love life? I doubt AI can solve relationship problems.,fallback,0
+460,thank you that's all,service_completion,1
+461,I wanted to share my thoughts on this.,feedback,6
+462,I want to choose a consultation time with a doctor,book_session,5
+463,I want to learn more about my appointment details.,session_status,7
+464,"Hi, buddy!",greeting,2
+465,I need your assistance in setting up an appointment with one of your doctors.,book_session,5
+466,Is there a way for me to submit feedback regarding my recent hospital visit?,feedback,6
+467,I wanted to provide thoughts.,feedback,6
+468,"No, that's all for now",service_completion,1
+469,Could you please assist me in changing the time of my last appointment?,session_reschedule,3
+470,Could you please help me reschedule my last appointment?,session_reschedule,3
+471,Could you assist me in rescheduling my last appointment?,session_reschedule,3
+472,"Well, hello there!",greeting,2
+473,What's the cure for a broken heart? A chatbot's response might not be enough.,fallback,0
+474,Can you tell me about the meaning of life according to some famous philosopher?,fallback,0
+475,Could I offer my feedback?,feedback,6
+476,I'm lost.,fallback,0
+477,I was looking to share my feedback.,feedback,6
+478,"Hi there, helpful bot!",greeting,2
+479,Can you clarify?,fallback,0
+480,"Hello, clever chatbot!",greeting,2
+481,"No, that's all I require",service_completion,1
+482,"Share the session details with me, if you could.",session_status,7
+483,"Hey, smart bot, how can you assist me?",greeting,2
+484,I'd like to know the specifics of my session.,session_status,7
+485,"I'm looking to book a session with one of your doctors, can you tell me how to proceed?",book_session,5
+486,Can you direct me to the feedback system for my recent hospital visit?,feedback,6
+487,Could you please help me cancel my appointment?,session_cancelation,4
+488,I'm interested in moving my last appointment to a new time.,session_reschedule,3
+489,What's the recipe for a magic potion? Maybe you can create some digital magic.,fallback,0
+490,What's there to tell about my appointment?,session_status,7
+491,Good afternoon!,greeting,2
+492,I'm interested in providing feedback about my recent visit to your hospital.,feedback,6
+493,Can you please cancel my appointment?,session_cancelation,4
+494,I'm feeling uncertain.,fallback,0
+495,Please reschedule the appointment I booked at your hospital. Something came up.,session_reschedule,3
+496,How are you doing today?,greeting,2
+497,"No, I'm good",service_completion,1
+498,Please reschedule my appointment at your hospital. I won't be able to make it.,session_reschedule,3
+499,I'm interested in booking a doctor's appointment,book_session,5
+500,Could you guide me on how to give feedback about my recent hospital visit?,feedback,6
+501,"No, that's final",service_completion,1
+502,Could you help me plan a visit to the doctor,book_session,5
+503,I'd appreciate it if you give details on the booking I've made for my medical examination.,session_status,7
+504,Please reschedule my appointment at your hospital due to unforeseen circumstances.,session_reschedule,3
+505,Can you help?,fallback,0
+506,"Give me the booking specifics, if you can.",session_status,7
+507,I want to cancel my appointment slot.,session_cancelation,4
+508,I need to cancel the appointment I scheduled at your hospital.,session_cancelation,4
+509,"Hi there, chatbot!",greeting,2
+510,"Hi, there, chatbot pal!",greeting,2
+511,I wanted to offer feedback on this.,feedback,6
+512,Lost in this.,fallback,0
+513,I'm interested in moving my appointment to a different time.,session_reschedule,3
+514,Can you assist me in changing the time of my last appointment?,session_reschedule,3
+515,Is it possible to cancel my appointment?,session_cancelation,4
+516,"Hey, chatbot, nice to see you!",greeting,2
+517,"What's the meaning of the universe? I know, I know, it's a big question.",fallback,0
+518,I want to reserve my consultation with a doctor,book_session,5
+519,"Can you tell me a secret? A chatbot with secrets, intriguing.",fallback,0
+520,"Could you cancel my appointment, please?",session_cancelation,4
+521,"What's up, bot?",greeting,2
+522,Can you cancel my appointment for me?,session_cancelation,4
+523,"No, that's the limit",service_completion,1
+524,"No, that's the whole thing",service_completion,1
+525,Is it okay to change the time of my last appointment?,session_reschedule,3
+526,I want to provide feedback about the cleanliness and hygiene at your hospital.,feedback,6
+527,Could you help me move my last appointment to a different time?,session_reschedule,3
+528,"Greetings, helpful bot!",greeting,2
+529,"Give me the details of my booking, please.",session_status,7
+530,I'm looking to fix an appointment with a doctor,book_session,5
+531,"Can you help me by canceling my appointment, if you're comfortable?",session_cancelation,4
+532,Can I give my thoughts?,feedback,6
+533,"Hello, friendly AI!",greeting,2
+534,I wanted to share my feedback with you.,feedback,6
+535,This is unclear.,fallback,0
+536,I wanted to give my thoughts.,feedback,6
+537,Can I give some feedback?,feedback,6
+538,"No, that's all for this job",service_completion,1
+539,"Hi there, digital companion!",greeting,2
+540,"No, I'm good with that",service_completion,1
+541,I had feedback to offer.,feedback,6
+542,I'd appreciate information on my appointment.,session_status,7
+543,I need to move my appointment to another time.,session_reschedule,3
+544,Can you assist?,fallback,0
+545,I'm unsure.,fallback,0
+546,I'd like to reschedule my scheduled appointment.,session_reschedule,3
+547,Can I select a meeting time with a doctor,book_session,5
+548,"Yo, bot!",greeting,2
+549,I need to reschedule my last appointment.,session_reschedule,3
+550,"What's the best way to win the lottery? I know it's a long shot, but any tips?",fallback,0
+551,"Can you assist me in canceling my appointment, when you're available?",session_cancelation,4
+552,Could you assist me in rescheduling my appointment at your hospital?,session_reschedule,3
+553,"I need to cancel my appointment, if you can.",session_cancelation,4
+554,I've decided to change the date of my appointment at your hospital.,session_reschedule,3
+555,Could you assist me with canceling my appointment?,session_cancelation,4
+556,Can you help me secure my slot for a doctor's visit,book_session,5
+557,I want to reschedule my last appointment that was previously scheduled.,session_reschedule,3
+558,"No, that's all I'm looking for",service_completion,1
+559,I'm at a loss.,fallback,0
+560,Could you help me move my appointment to a different time?,session_reschedule,3
+561,Please assist me in reserving a session with one of your doctors.,book_session,5
+562,Good morning!,greeting,2
+563,I had some thoughts to share.,feedback,6
+564,I'd like to select my schedule for a doctor's appointment,book_session,5
+565,I'd like to book my consultation with a doctor,book_session,5
+566,"No, that's sufficient",service_completion,1
+567,I want to confirm my slot for a doctor's appointment,book_session,5
+568,I'm interested in the details of my booking.,session_status,7
+569,Please cancel my appointment at your hospital. I won't be able to make it.,session_cancelation,4
+570,I'm at a dead end.,fallback,0
+571,Can you simplify?,fallback,0
+572,Can you assist me in canceling my appointment?,session_cancelation,4
+573,"Hi there, amazing bot!",greeting,2
+574,I want to provide feedback on the facilities and services at your hospital.,feedback,6
+575,Is it possible to change the time of my last appointment?,session_reschedule,3
+576,"I need to cancel my appointment, if it's convenient.",session_cancelation,4
+577,Can I offer my thoughts?,feedback,6
+578,Is there a platform or email where I can send my feedback regarding my hospital visit?,feedback,6
+579,"I need to cancel my appointment, when you're free.",session_cancelation,4
+580,How tall is the Eiffel Tower? Just testing your general knowledge.,fallback,0
+581,Can you help me with changing the time of my last appointment?,session_reschedule,3
+582,"Can you please cancel my appointment, if you're able to?",session_cancelation,4
+583,"No, that's everything I was looking for.",service_completion,1
+584,I'd like to reschedule my appointment.,session_reschedule,3
+585,"Could you cancel my appointment, if that's okay?",session_cancelation,4
+586,I'm looking to secure a time for a doctor's appointment,book_session,5
+587,Book an apoointment,book_session,5
+588,That's all I was looking for.,service_completion,1
+589,"I want to cancel my appointment, if that's possible.",session_cancelation,4
+590,I'm puzzled.,fallback,0
+591,"No, I don't require any more assistance.",service_completion,1
+592,What's the best diet for losing weight? A chatbot nutritionist might be helpful!,fallback,0
+593,Greetings and salutations!,greeting,2
+594,Can you provide me with session information?,session_status,7
