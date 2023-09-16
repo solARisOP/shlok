@@ -80,6 +80,9 @@ class patient_info(models.Model):
     gender = models.IntegerField(choices=gender_fields, null=False)
     DOB = models.DateField(null=False)
     phone = models.CharField(max_length=10, null=False)
+
+class feedback(models.Model):
+    details = models.TextField()
     
 
 
