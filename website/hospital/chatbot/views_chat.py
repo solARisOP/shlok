@@ -4,7 +4,6 @@ from chatbot import symptom_doc_matcher
 from chatbot import pred
 import json
 import random
-from django.db import connection
 from chatbot.models import doctor_list, doctor_sessions, patient_sessions, patient_info
 import re
 from datetime import datetime
@@ -96,106 +95,63 @@ def date_validate(date_obj):
 
 def new_user(request):
     request.session["user"] = True
-    request.session["book_flag"] = 0
+    request.session["book_flag"] = 9
     request.session["cancel_flag"] = 0
     request.session["change_flag"] = 0
     request.session["status_flag"] = 0
     request.session["feedback"] = 0
-    request.session["double_check_flag"] = 0
+    request.session["details_flag"] = 0
 
 def finalize_booking(request):
     message = request.session['message']
-    check = request.session["double_check_flag"] 
-    if(check == 1):
-        chatbot_response = '''Please enter the patient's full name'''
-        request.session["double_check_flag"] = 2
-    elif(check == 2):
-        request.session['name'] = message
-        chatbot_response = '''1. Male\n 2. Female\n 3. Others\n\n
-        Enter appropriate option number to which the Patient's sex belong and press enter'''
-        request.session["double_check_flag"] = 3
-    elif(check == 3):
-        if message.isdigit() and (int(message)>0 and int(message)<4):
-            request.session['gender'] = int(message)
-            chatbot_response = '''Please enter patient's Date of birth'''
-            request.session["double_check_flag"] = 4
-        else:
-            chatbot_response = '''Wrong input! Please enter the appropriate option number to which the Patient's sex belong\n\n
-                            1. Male\n 2. Female\n 3. Others\n\n'''
-    elif (check == 4):
-        date = date_validate(message)
-        present_date = datetime.now()
-        if(date != '-1' and date.date() < present_date.date()):
-            date = date.strftime("%Y-%m-%d")
-            request.session["DOB"] = date.split(' ')[0]
-            chatbot_response = '''Please enter a valid phone number on which we can contact you'''
-            request.session["double_check_flag"] = 5
-        else:
-            chatbot_response = '''Sorry! wrong input\n
-                                Please enter patient's Date of birth'''
-    else:
-        if(len(message) == 10 and message.isdigit()):
-            try:
-                pat = patient_sessions.objects.latest('session_Id')
-                session_Id = str(int(pat.session_Id) + 1)
-            except ObjectDoesNotExist:
-                session_Id = "1000001"
-
-            name = request.session["name"]
-            gender = request.session["gender"]
-            dob = request.session["DOB"]
-            dob = datetime.strptime(dob, "%Y-%m-%d")
-            phone = message
-            slot = request.session["time"]
-            date_ = request.session["booking_date"]
-            date_ = datetime.strptime(date_, "%Y-%m-%d")
-            doctor = request.session["doc_ID"]
-
-            try:
-                patient = patient_info.objects.get(name = name, gender = gender, DOB = dob.date(), phone = phone)
-                Id = patient.Id
-            except ObjectDoesNotExist:
-                try:
-                    new_patient = patient_info.objects.latest('Id')
-                    Id = str(int(new_patient.Id) + 1)
-                except ObjectDoesNotExist:
-                    Id = "10001"
-                new_patient = patient_info(Id = Id, name = name, gender = gender, DOB = dob.date(), phone = phone)
-                new_patient.save()
-
-            doc_session, created = doctor_sessions.objects.get_or_create(doc_Id = doctor, session_date = date_.date(), session_time = slot)
-            doc_session.session_count += 1
-            doc_session.save()
-            new_session = patient_sessions(doc_Id = doctor, session_Id = session_Id, pat_Id = Id, session_date = date_, session_time = slot)
-            new_session.save()
-            date_ = date_.strftime("%d-%m-%Y")    
-            date_ = date_.split(' ')[0]
-            
-            doct = doctor_list.objects.get(Id = doctor)
-            time_ = dict(doctor_sessions.time_fields).get(slot)
-            chatbot_response = f'''Your appointment with Dr. {doct.name} has been booked on {date_} at {time_} and your Session Id is {session_Id}.\n
-                                Please keep this Session-Id for future reference\n
-                                '''
-                        
-            request.session.clear()
-        else:
-            chatbot_response = '''Sorry invalid phone number \n
-            Please enter a valid phone number on which we can contact you'''
-
-    response_data = {
-        'message': chatbot_response
-    }
-    return JsonResponse(response_data) 
-
-def time_check(request):
-    message = request.session['message']
     if message.isdigit() and (int(message) > 0 and int(message)<=len(request.session['timmings'])):
         time_option = int(message)
-        request.session["time"] = request.session['timmings'][time_option-1] 
-        request.session["double_check_flag"] = 1
-        request.session["book_flag"] = 9
-        return finalize_booking(request)
-
+        request.session["time"] = request.session['timmings'][time_option-1]
+        try:
+            pat = patient_sessions.objects.latest('session_Id')
+            session_Id = str(int(pat.session_Id) + 1)
+        except ObjectDoesNotExist:
+            session_Id = "1000001"
+        name = request.session["name"]
+        gender = request.session["gender"]
+        dob = request.session["DOB"]
+        dob = datetime.strptime(dob, "%Y-%m-%d")
+        phone = request.session["phone"]
+        slot = request.session["time"]
+        date_ = request.session["booking_date"]
+        date_ = datetime.strptime(date_, "%Y-%m-%d")
+        doctor = request.session["doc_ID"]
+        try:
+            patient = patient_info.objects.get(name = name, gender = gender, DOB = dob.date(), phone = phone)
+            Id = patient.Id
+        except ObjectDoesNotExist:
+            try:
+                new_patient = patient_info.objects.latest('Id')
+                Id = str(int(new_patient.Id) + 1)
+            except ObjectDoesNotExist:
+                Id = "10001"
+            new_patient = patient_info(Id = Id, name = name, gender = gender, DOB = dob.date(), phone = phone)
+            new_patient.save()
+        doc_session, created = doctor_sessions.objects.get_or_create(doc_Id = doctor, session_date = date_.date(), session_time = slot)
+        doc_session.session_count += 1
+        doc_session.save()
+        new_session = patient_sessions(doc_Id = doctor, session_Id = session_Id, pat_Id = Id, session_date = date_, session_time = slot)
+        new_session.save()
+        date_ = date_.strftime("%d-%m-%Y")    
+        date_ = date_.split(' ')[0]
+        
+        doct = doctor_list.objects.get(Id = doctor)
+        time_ = dict(doctor_sessions.time_fields).get(slot)
+        chatbot_response = f'''Your appointment with Dr. {doct.name} has been booked on {date_} at {time_} and your Session Id is {session_Id}.\n
+                            Please keep this Session-Id for future reference\n
+                            '''
+        if "del_session" in request.session:
+            request.session["session_Id"] = request.session["del_session"]
+            request.session["message"] = '1'
+            request.session["cancel_flag"] = 2
+            canceler(request)
+        request.session.clear()
+    
     else :
         chatbot_response = '''Sorry the option you entered is invalid. \n
         Please enter the option of the desired time slot you wanna book and press enter \n'''
@@ -203,7 +159,11 @@ def time_check(request):
             'message': chatbot_response
         }
         return JsonResponse(response_data) 
-    
+   
+    response_data = {
+        'message': chatbot_response
+    }
+    return JsonResponse(response_data)     
 
 def time_finalize(request):
     date = date_validate(request.session["message"])
@@ -218,9 +178,9 @@ def time_finalize(request):
     else:
         Id = request.session["doc_ID"]
         
-        morn = doctor_sessions.objects.filter(doc_Id = Id, session_date = date.date(), session_count = 9)
-        noon = doctor_sessions.objects.filter(doc_Id = Id, session_date = date.date(), session_count = 6)
-        eve = doctor_sessions.objects.filter(doc_Id = Id, session_date = date.date(), session_count = 6)
+        morn = doctor_sessions.objects.filter(doc_Id = Id, session_date = date.date(), session_time = 10, session_count = 9)
+        noon = doctor_sessions.objects.filter(doc_Id = Id, session_date = date.date(), session_time = 14, session_count = 6)
+        eve = doctor_sessions.objects.filter(doc_Id = Id, session_date = date.date(), session_time = 17, session_count = 6)
 
         date = date.strftime("%Y-%m-%d")
         request.session["booking_date"] = date.split(' ')[0]
@@ -261,21 +221,22 @@ def date_finalize(request):
         eve = doctor_sessions.objects.filter(doc_Id = Id, session_time = 17, session_count = 6)
         dates = []
         for cnt in morn:
-            if(cnt in noon and cnt in eve):
-                dates.append(cnt)
+            if(cnt.session_date == noon.session_date and cnt.session_date == eve.session_date):
+                if cnt.session_date not in dates:
+                    dates.append(cnt.session_date)
 
-        restrict = ""
         doc = doctor_list.objects.get(Id = Id)
+        restrict = f"Dr. {doc.name} is not avaliable on sundays"
         if len(dates):
+            restrict.pop
             request.session["restrict_dates"] = []
-            restrict += f'''Dr. {doc.name} is not avaliable on sundays and {"he" if doc.gender == 1 else "she"} is fully booked on these particular dates \n'''
+            restrict += f''' and {"he" if doc.gender == 1 else "she"} is fully booked on these particular dates.\n'''
             for date in dates:
                 day = date.strftime("%d-%m-%Y")
                 day = day.split(' ')[0]
                 restrict += f'''{day}\n'''
                 request.session["restrict_dates"].append(day)
-        chatbot_response += restrict
-        chatbot_response = f'''\nPlease enter a valid date on which you wanna book appointment with Dr. {doc.name}\n you can only book on dates which are avaliable under one month from today \n'''
+        chatbot_response = restrict + f'''\nPlease enter a valid date on which you wanna book appointment with Dr. {doc.name}\n you can only book on dates which are avaliable under one month from today \n'''
         request.session["doc_ID"] = doc.Id
         request.session["book_flag"] = 7
     
@@ -294,7 +255,7 @@ def doctor_selector(request):
     if message.isdigit() and (int(message) > 0 and int(message) < 20):
         doc_option = int(message)
         doctors = doctor_list.objects.filter(doc_type = doc_option)
-        chatbot_response = f'''Here is the list of all {symptom_doc_matcher.doctors[doc_option-1]} available at our hospital \n
+        chatbot_response = f'''Here is the list of all {symptom_doc_matcher.doctors_[doc_option-1]} available at our hospital \n
                              the payment for the booking can be done at the hospital\n'''
         request.session["doctors"] = []
         cnt=1
@@ -302,11 +263,11 @@ def doctor_selector(request):
             doc = f"{cnt}.\n"
             cnt = cnt +1
             request.session["doctors"].append(doctor.Id)
-            doc+=f'name ->  {doctor.name}\n'
+            doc+=f'Name       ->  {doctor.name}\n'
             sex = dict(doctor_list.gender_fields).get(doctor.gender)
-            doc+=f'sex  ->  {sex}\n'
-            doc+=f'experience ->  {doctor.experience} years\n'
-            doc+=f'fees ->  {doctor.fees}\n'
+            doc+=f'Sex        ->  {sex}\n'
+            doc+=f'Experience ->  {doctor.experience} years\n'
+            doc+=f'Fees       ->  {doctor.fees}\n'
             chatbot_response+=doc
         chatbot_response+="\n Please type in the option of the desired doctor you wanna book and press enter"
         request.session["book_flag"] = 6
@@ -331,7 +292,7 @@ def doct_type_selector(request):
     request.session["book_flag"] = 5
     return JsonResponse(response_data)
 
-def greet(request):
+def greeter(request):
     intent = "greeting"
     if "user" in request.session:
         chatbot_response = "sorry can't understand, your request. You can ask for." + default_template
@@ -345,6 +306,50 @@ def greet(request):
 
     return JsonResponse(response_data)
 
+def details(request):
+    message = request.session['message']
+    check = request.session["details_flag"] 
+    if(check == 1):
+        chatbot_response = '''Please enter the patient's full name'''
+        request.session["details_flag"] = 2
+    elif(check == 2):
+        request.session['name'] = message
+        chatbot_response = '''1. Male\n 2. Female\n 3. Others\n\n
+        Enter appropriate option number to which the Patient's sex belong and press enter'''
+        request.session["details_flag"] = 3
+    elif(check == 3):
+        if message.isdigit() and (int(message)>0 and int(message)<4):
+            request.session['gender'] = int(message)
+            chatbot_response = '''Please enter patient's Date of birth'''
+            request.session["details_flag"] = 4
+        else:
+            chatbot_response = '''Wrong input! Please enter the appropriate option number to which the Patient's sex belong\n\n
+                            1. Male\n 2. Female\n 3. Others\n\n'''
+    elif (check == 4):
+        date = date_validate(message)
+        present_date = datetime.now()
+        if(date != '-1' and date.date() < present_date.date()):
+            date = date.strftime("%Y-%m-%d")
+            request.session["DOB"] = date.split(' ')[0]
+            chatbot_response = '''Please enter a valid phone number on which we can contact you'''
+            request.session["details_flag"] = 5
+        else:
+            chatbot_response = '''Sorry! wrong input\n
+                                Please enter patient's Date of birth'''
+    else:
+        if(len(message) == 10 and message.isdigit()):
+            request.session["phone"] = message
+            request.session["details_flag"] = 0
+            return booker(request)
+        else:
+            chatbot_response = '''Sorry invalid phone number \n
+            Please enter a valid phone number on which we can contact you'''
+
+    response_data = {
+        "message": chatbot_response
+    }
+    return JsonResponse(response_data)
+
 
 def booker(request):
     if ("user" not in request.session):
@@ -355,12 +360,16 @@ def booker(request):
         message = request.session["message"]
         book_flag = request.session["book_flag"]
 
-        if(book_flag == 0):
+        if(book_flag == 9):
+            request.session["details_flag"] = 1
+            request.session["book_flag"] = 0
+            return details(request)
+
+        elif(book_flag == 0):
             chatbot_response = '''For session/appointment booking we have two options \n\n
             1. You can book through the type of the doctor \n 
             2. You can book through by describing the symptoms you are facing \n\n 
             Please type in the option number you wanna go forward with your booking and press enter'''
-            request.session["context"].append("book_session")
             request.session["book_flag"] = 1
 
         elif (book_flag == 1):
@@ -384,14 +393,13 @@ def booker(request):
                 doctor = symptom_doc_matcher.predict_doc(symptoms)
                 chatbot_response = random.choice(response["symptoms"])
                 request.session["doc_type"] = doctor
-                chatbot_response = chatbot_response.replace("[doctor]", dict(doctor_list.doc_type).get(doctor))
+                chatbot_response = chatbot_response.replace("[doctor]", dict(doctor_list.feilds).get(doctor))
                 chatbot_response += '''\n 1. If you are satisfied with the type of doctor suggestion \n
                                         2. If you wanna choose the type of doctor manually\n\n
                                         Please type in the option number of the desired option you wanna choose and press enter\n'''
                 request.session["book_flag"] = 3
             else:
-                chatbot_response += '''Sorry cannot understand, Please describe your symptoms correctly as it is crucial part of your 
-                                    session/appointment booking and getting you the best possible doctor acoording to your symptoms\n'''
+                chatbot_response = '''Sorry cannot understand, Please describe your symptoms correctly as it is crucial part of your session/appointment booking and getting you the best possible doctor acoording to your symptoms\n'''
 
         else:
             if message == '2':
@@ -399,7 +407,7 @@ def booker(request):
                 return doct_type_selector(request)
             elif message == '1':
                 request.session["book_flag"] = 5
-                request.session["message"] = request.session["doc_type"]
+                request.session["message"] = str(request.session["doc_type"])
                 return doctor_selector(request)
             else:
                 chatbot_response = '''Sorry! wrong input, couldn't understand,\n
@@ -422,13 +430,13 @@ def canceler(request):
         message = request.session["message"]
         cancel_flag = request.session["cancel_flag"]
         if(cancel_flag == 0):
-            chatbot_response = random.choice(response["session_cancelation"])
+            chatbot_response = random.choice(response[intent])
             request.session["cancel_flag"] = 1
         elif(cancel_flag == 1):
             if(message.isdigit() and len(message) == 7):
                 try:
-                    session_Id = patient_sessions.objects.get(Session_Id = message)
-                    request.session["session_Id"] = session_Id
+                    sessions = patient_sessions.objects.get(session_Id = message)
+                    request.session["session_Id"] = message
                     chatbot_response = '''Are you sure you want to cancel your appointment\n
                                         1. YES\n
                                         2. No\n
@@ -447,8 +455,10 @@ def canceler(request):
                 doc_session.session_count -=1
                 session_delete.delete()
                 doc_session.save()
-                request.session.clear()
+                if "del_session" in request.session:
+                    return True
                 chatbot_response = "Your session has been successfully cancelled"
+                request.session.clear()
             elif(message == '2'):
                 chatbot_response = "Sure, your session stays the same"
                 request.session.clear()
@@ -468,21 +478,105 @@ def feedbacker(request):
         chatbot_response = "If you want to use our services through me please start by greeting me, then i would be very happy to assist you :-)"
     else:
         intent = "feedback"
-        message = request.session["message"]
         feed_flag = request.session["feedback"]
         if(feed_flag == 0):
-            chatbot_response = random.choice(request.session["feedback"])
+            chatbot_response = random.choice(response[intent])
             request.session["feedback"] = 1
         else:
             chatbot_response = '''Thank you for your valuable feedback, we will work for it and continue to improve our services\n'''
+            request.session.clear()
 
     response_data = {
         "message": chatbot_response
     }
     return JsonResponse(response_data)
 
-def changer(request):
-    pass
+def rescheduler(request):
+    if "user" not in request.session:
+        chatbot_response = "If you want to use our services through me please start by greeting me, then i would be very happy to assist you :-)"
+    else:
+        intent = "session_reschedule"
+        message = request.session["message"]
+        change_flag = request.session["change_flag"]
+        if(change_flag == 0):
+            chatbot_response = random.choice(response[intent])
+            request.session["change_flag"] = 1
+        elif(change_flag == 1):
+            if(message.isdigit() and len(message) == 7):
+                try:
+                    session_details = patient_sessions.objects.get(session_Id = message)
+                    doc_id = session_details.doc_Id
+                    pat_id = session_details.pat_Id
+                    patient = patient_info.objects.get(Id = pat_id)
+                    request.session["name"] = patient.name
+                    request.session["gender"] = patient.gender
+                    date = patient.DOB
+                    date = date.strftime("%Y-%m-%d")
+                    date = date.split(' ')[0]
+                    request.session["DOB"] = date
+                    request.session["phone"] = patient.phone
+
+                    request.session["book_flag"] = 6
+                    request.session["change_flag"] = 0
+                    request.session["doctors"] = [doc_id]
+                    request.session["message"] = '1'
+                    request.session["del_session"] = message
+                    return date_finalize(request)
+                except ObjectDoesNotExist:
+                    chatbot_response = '''Sorry! No record found.\n
+                                    Please enter a valid session Id'''
+            else:
+                chatbot_response = '''Wrong session Id.\n
+                            Please enter a valid session Id'''
+    response_data = {
+        "message": chatbot_response
+    }
+    return JsonResponse(response_data)
+
+def status_checker(request):
+    if "user" not in request.session:
+        chatbot_response = "If you want to use our services through me please start by greeting me, then i would be very happy to assist you :-)"
+    else:
+        message = request.session["message"]
+        status_flag = request.session["status_flag"]
+        if(status_flag == 0):
+            chatbot_response = random.choice(response["session_reschedule"])
+            request.session["status_flag"] = 1
+        else:
+            if(message.isdigit() and len(message) == 7):
+                try:
+                    session_details = patient_sessions.objects.get(session_Id = message)
+                    date = session_details.session_date
+                    date = date.strftime("%d-%m-%Y")
+                    time = session_details.session_time
+                    time = dict(patient_sessions.time_fields).get(time)
+                    doc_id = session_details.doc_Id
+
+                    doctor = doctor_list.objects.get(Id = doc_id)
+                    doc_name = doctor.name
+                    chatbot_response = f'''Your have an appointment with Dr. {doc_name} on {date} at {time}'''
+                    request.session.clear()
+                except ObjectDoesNotExist:
+                    chatbot_response = '''Sorry! No record found.\n
+                                    Please enter a valid session Id'''
+            else:
+                chatbot_response = '''Wrong session Id.\n
+                            Please enter a valid session Id''' 
+                           
+    response_data = {
+        "message": chatbot_response
+    }
+    return JsonResponse(response_data)
+
+def fallbacker(request):
+    if "user" in request.session:
+        chatbot_response = "sorry can't understand, your request. You can ask for." + default_template
+    else:
+        chatbot_response = random.choice(response["fallback"])
+    response_data = {
+        "message": chatbot_response
+    }
+    return JsonResponse(response_data)
 
 
 def chatbot(request):
@@ -491,40 +585,65 @@ def chatbot(request):
         user_message = data.get('message', '')
         user = data.get('sessionid', '')
         print(user)
-        
-        # insert code to identify if it is an ongoing session
+    
         request.session['message'] = user_message
-        if("book_flag" in request.session):
-            book_flag = request.session["book_flag"]
-            if book_flag:
-                if book_flag <=3:
-                    print("called booker")
-                    return booker(request)
-                elif book_flag == 4:
-                    print("called doct_type_selector")
-                    return doct_type_selector(request)
-                elif book_flag == 5:
-                    print("called doctor_selector")
-                    return doctor_selector(request)
-                elif book_flag == 6:
-                    print("called date_finalize")
-                    return date_finalize(request)
-                elif book_flag == 7:
-                    print("called time_finalize")
-                    return time_finalize(request)
-                elif book_flag == 8:
-                    print("called time_check")
-                    return time_check(request)
-                elif book_flag == 9:
-                    print("called finalize_booking")
-                    return finalize_booking(request)
-            
 
+        if "user" in request.session:
+            details_flag = request.session["details_flag"]
+            if details_flag:
+                print("details")
+                return details(request)
+            
+            book_flag = request.session["book_flag"]
+            if book_flag <=3:
+                print("booker")
+                return booker(request)
+            elif book_flag == 4:
+                print("doct_type_selector")
+                return doct_type_selector(request)
+            elif book_flag == 5:
+                print("doctor_selector")
+                return doctor_selector(request)
+            elif book_flag == 6:
+                print("date_finalize")
+                return date_finalize(request)
+            elif book_flag == 7:
+                print("time_finalize")
+                return time_finalize(request)
+            elif book_flag == 8:
+                print("finalize_booking")
+                return finalize_booking(request)   
+
+            cancel_flag = request.session["cancel_flag"]
+            if cancel_flag:
+                print("canceler")
+                return canceler(request)    
+            
+            change_flag = request.session["change_flag"]
+            if change_flag:
+                print("rescheduler")
+                return rescheduler(request)    
+            
+            status_flag = request.session["status_flag"]
+            if status_flag:
+                print("status_checker")
+                return status_checker(request)  
+            
+            feedback = request.session["feedback"]
+            if feedback:
+                print("feedbacker")
+                return feedbacker(request)  
+                     
         intent = pred.predict_intent(user_message)
 
         intent_func = {
-            "greeting": greet,
+            "greeting": greeter,
             "book_session": booker,
+            "session_status": status_checker,
+            "session_reschedule": rescheduler,
+            "session_cancelation": canceler,
+            "feedback": feedbacker,
+            "fallback": fallbacker
         }
 
         return intent_func[intent](request)
