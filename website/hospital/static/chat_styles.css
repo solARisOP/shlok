@@ -2,74 +2,123 @@
 #chatbot-container {
     position: fixed;
     bottom: 20px;
-    right: 20px;
-    width: 300px;
+    right: 85px;
+    width: 320px;
     background-color: #f0f0f0;
     border: 1px solid #ccc;
     border-radius: 5px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    align-items: center;
+}
+.hidden {
+    display: none;
+}
+#chatbot-toggle {
+    position: fixed;
+    bottom: 80px;
+    right: 10px;
+    width: 65px;
+    height: 65px;
+    background-color: #0e010e;
+    color: #fff;
+    border: none;
+    border-radius: 50%; /* Make it circular */
+    font-size: 16px;
+    cursor: pointer;
+}
+
+p{
+    margin: 2px;
 }
 
 #chatbot-header {
-    background-color: #007bff;
-    color: #fff;
+    background-color: #dfc4dc;
+    color: #000000;
     padding: 10px;
     text-align: center;
     border-radius: 5px 5px 0 0;
+    font-family: 'Segoe UI';
 }
 
 #chatbot-body {
     padding: 10px;
-    background-color: #242222;
+    background-color: #ffc6f8;
+    border-radius: 0 0 5px 5px;
 }
 
 /* Styling for chatbot messages */
-#chatbot-messages{
-    height: 270px;
-    overflow-y: auto;
+/* Hide the scrollbar for chatbot-messages */
+#chatbot-messages {
+    height:320px; 
+    overflow-y: scroll; /* Enable vertical scrolling */
+    scrollbar-width: none; /* Hide the scrollbar for Firefox */
+    -ms-overflow-style: none; /* Hide the scrollbar for IE/Edge */
+    scroll-behavior: smooth;
 }
 
+/* Styling for the scrollbar (for Webkit browsers) */
+#chatbot-messages::-webkit-scrollbar {
+    width: 0; /* Hide the scrollbar for Webkit browsers */
+}
+
+.parax{
+    margin : 4px;
+}
 
 div.chatbot-message{
     text-align: left;
-    background-color: rgb(104, 104, 242);
+    background-color: rgb(235, 143, 233);
+    border: 2.5px solid rgb(137, 0, 140);
     display: block; 
     word-wrap: break-word;
     border-radius: 20px;
     padding: 8px;
-    margin: 8px;
+    margin-top: 8px;
+    margin-bottom: 8px;
 }
 
 div.user-message{
     text-align: right;
-    background-color: rgb(203, 104, 242);
+    background-color: rgb(188, 157, 236);
+    border: 3px solid rgb(0, 0, 0);
     display: block;
     word-wrap: break-word;
     border-radius: 20px;
     padding: 8px;
-    margin: 8px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.input-and-send {
+    display: flex;
+    flex-direction: row;
+    align-items: center; /* Vertically align items */
+    margin-bottom: 5px;
+    margin-top: 10px;
 }
 
 /* Styling for user input */
 #user-input {
     width: 100%;
-    padding: 5px;
-    margin-top: 10px;
+    padding: 4px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    margin-right: 2px;
+    text-align: center;
 }
 
 #send-button {
     display: block;
-    margin-top: 10px;
-    background-color: #007bff;
+    background-color: #290032;
     color: #fff;
     border: none;
     border-radius: 5px;
     padding: 5px 10px;
     cursor: pointer;
+    margin-left: 2px;
 }
 
 #send-button:hover {
-    background-color: #0056b3;
+    background-color: #aa00b0;
+    color: #000000;
 }

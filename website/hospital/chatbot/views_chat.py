@@ -54,7 +54,7 @@ def date_validate(date_obj):
     if(len(st) == 3):
         temp = st[1]
         temp = temp.upper()
-        if(temp.startswith('J')):
+        if(temp.startswith('JA')):
             temp = "JANUARY"
         elif(temp.startswith('F')):
             temp = "FEBRUARY"
@@ -219,16 +219,15 @@ def date_finalize(request):
         morn = doctor_sessions.objects.filter(doc_Id = Id, session_time = 10, session_count = 9)
         noon = doctor_sessions.objects.filter(doc_Id = Id, session_time = 14, session_count = 6)
         eve = doctor_sessions.objects.filter(doc_Id = Id, session_time = 17, session_count = 6)
-        dates = []
-        for cnt in morn:
-            if(cnt.session_date == noon.session_date and cnt.session_date == eve.session_date):
-                if cnt.session_date not in dates:
-                    dates.append(cnt.session_date)
 
+        dates_morn = list(morn.values_list('session_date', flat= True))
+        dates_noon = list(noon.values_list('session_date', flat= True))
+        dates_eve = list(eve.values_list('session_date', flat= True))
+
+        dates = set(dates_morn).intersection(dates_noon, dates_eve)
         doc = doctor_list.objects.get(Id = Id)
         restrict = f"Dr. {doc.name} is not avaliable on sundays"
         if len(dates):
-            restrict.pop
             request.session["restrict_dates"] = []
             restrict += f''' and {"he" if doc.gender == 1 else "she"} is fully booked on these particular dates.\n'''
             for date in dates:
@@ -255,7 +254,7 @@ def doctor_selector(request):
     if message.isdigit() and (int(message) > 0 and int(message) < 20):
         doc_option = int(message)
         doctors = doctor_list.objects.filter(doc_type = doc_option)
-        chatbot_response = f'''Here is the list of all {symptom_doc_matcher.doctors_[doc_option-1]} available at our hospital \n
+        chatbot_response = f'''Here is the list of all {dict(doctor_list.feilds).get(doc_option)} available at our hospital \n
                              the payment for the booking can be done at the hospital\n'''
         request.session["doctors"] = []
         cnt=1
@@ -273,9 +272,10 @@ def doctor_selector(request):
         request.session["book_flag"] = 6
 
     else:
-        chatbot_response = f'''Sorry! wrong input, couldn't understand,\n
-        {doct_types}\nPlease type in the option of the desired doctor type you wanna book an appointment with and press enter\n,
-        I will display the prices and doctor names with respect to the doctor option you selected'''
+        chatbot_response = f'''Sorry! wrong input, couldn't understand.\n
+        {doct_types}\n
+        Please type in the option of the desired doctor type you wanna book an appointment with and press enter.\n
+        I will display the prices and doctor names with respect to the doctor option you selected.'''
 
     response_data = {
         'message': chatbot_response
@@ -283,8 +283,8 @@ def doctor_selector(request):
     return JsonResponse(response_data)
 
 def doct_type_selector(request):
-    chatbot_response = doct_types + '''Please type in the option of the desired doctor type you wanna book and press enter\n,
-                                       I will display the prices and doctor names with respect to the doctor option you selected'''
+    chatbot_response = doct_types + '''Please type in the option of the desired doctor type you wanna book and press enter.\n
+                                       I will display the prices and doctor names with respect to the doctor option you selected.'''
     
     response_data = {
         'message': chatbot_response
@@ -578,6 +578,12 @@ def fallbacker(request):
     }
     return JsonResponse(response_data)
 
+def completer(request):
+    chatbot_response = random.choice(response['service_completion'])
+    response_data = {
+        "message": chatbot_response
+    }
+    return JsonResponse(response_data)
 
 def chatbot(request):
     if request.method == 'POST':
@@ -643,7 +649,8 @@ def chatbot(request):
             "session_reschedule": rescheduler,
             "session_cancelation": canceler,
             "feedback": feedbacker,
-            "fallback": fallbacker
+            "fallback": fallbacker,
+            "service_completion": completer,
         }
 
         return intent_func[intent](request)

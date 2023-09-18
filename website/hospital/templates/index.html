@@ -1,31 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="static/chat_styles.css">
-    <title>chatbot</title>
-</head>
-
-<body>
-    <!-- Chatbot container -->
-    <div id="chatbot-container">
-        <div id="chatbot-header">
-            <h3>Chatbot</h3>
-            <button id="chatbot-toggle">Toggle</button>
-        </div>
-        <div id="chatbot-body">
-            <div id="chatbot-messages"></div>
-            {% csrf_token %}
+{% block body %}
+ <!-- Chatbot container -->
+<div id="chatbot-container" class="hidden">
+    <div id="chatbot-header">
+        <h3>SHLOK</h3>
+    </div>
+    <div id="chatbot-body">
+        <div id="chatbot-messages"></div>
+        {% csrf_token %}
+        <div class="input-and-send">
             <input type="text" id="user-input" placeholder="Type your message...">
             <button id="send-button">Send</button>
         </div>
     </div>
+</div>
+<button id="chatbot-toggle" >Shlok</button>
 
-    <!-- Include JavaScript -->
-    <script src="static/chat_script.js"></script>
-
-</body>
-
-</html>
+<!-- Include JavaScript -->
+<link rel="stylesheet" type="text/css" href="static/chat_styles.css">
+<script src="static/chat_script.js"></script>
+{% endblock body %}
+    

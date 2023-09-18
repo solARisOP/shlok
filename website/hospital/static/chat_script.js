@@ -7,11 +7,23 @@ document.addEventListener('DOMContentLoaded', function () {
     const sendButton = document.getElementById('send-button');
 
     // Function to toggle the chatbot interface
+    var chatbotVisible = 1
     chatbotToggle.addEventListener('click', function () {
-        chatbotBody.classList.toggle('chatbot-hidden');
+        if(chatbotVisible)
+        {
+            chatbotContainer.style.display = 'block'
+        }
+        else{
+            chatbotContainer.style.display = 'none'
+        }
+        chatbotVisible = !chatbotVisible
     });
 
     // Function to send a user message and receive a response
+    function scrollmessages() {
+        chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+    }
+
     function sendMessage() {
         let userMessage = userInput.value;
         userMessage = userMessage.trim();
@@ -24,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             // Append the user's message to the chat messages container
             chatbotMessages.appendChild(userMessageElement);
-
+            scrollmessages();
             // Clear the user input field
             userInput.value = '';
 
@@ -52,11 +64,13 @@ document.addEventListener('DOMContentLoaded', function () {
                     const lines = data.message.split('\n');
                     lines.forEach(line => {
                         const paragraph = document.createElement('p');
+                        paragraph.classList.add('parax');
                         paragraph.textContent = line;
                         chatbotMessageElement.appendChild(paragraph);
                     });
                     // Append the chatbot's response to the chat messages container
                     chatbotMessages.appendChild(chatbotMessageElement);
+                    scrollmessages();
 
                 })
                 .catch((error) => {
