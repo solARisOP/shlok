@@ -10,7 +10,7 @@ Obstetrician/Gynecologist (OB/GYN)
 Urologist
 Nephrologist (kidney)
 Psychiatrist
-Dentist
+Dentist/Maxillofacial
 Physiotherapist
 Ophthalmologist (Eye specialist)
 Allergist/Immunologist

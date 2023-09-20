@@ -8,7 +8,7 @@ llm = OpenAI(temperature=0.3, openai_api_key=key)
 prompt = PromptTemplate.from_template("what type of doctor should i suggest if, {symptoms}")
 chain = LLMChain(llm = llm, prompt=prompt)
 
-doctors = ["practitioner", "physician", "cardiologist", "gastroenterologist", "dermatologist", "neurologist", "orthopedic", "pediatrician", "gynecologist", "urologist", "nephrologist", "psychiatrist", "dentist", "physiotherapist", "ophthalmologist", "allergist", "immunologist", "pulmonologist", "endocrinologist", "ent"]
+doctors = ["practitioner", "physician", "cardiologist", "gastroenterologist", "dermatologist", "neurologist", "orthopedic", "pediatrician", "gynecologist", "obstetrician", "urologist", "nephrologist", "psychiatrist", "dentist", "maxillofacial", "physiotherapist", "ophthalmologist", "allergist", "immunologist", "pulmonologist", "endocrinologist", "ent"]
 
 def predict_doc(symptoms):
     ans = chain.run(symptoms)
@@ -17,7 +17,7 @@ def predict_doc(symptoms):
     i=1
     for doctor in doctors:
         print(doctor)
-        if doctor == "immunologist":
+        if doctor == "immunologist" or doctor == "obstetrician" or doctor == "maxillofacial":
             i -= 1
         if doctor in ans:
             return i
