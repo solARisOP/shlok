@@ -549,49 +549,37 @@ def chatbot(request):
         data = json.loads(request.body.decode('utf-8'))
         user_message = data.get('message', '')
         user = data.get('sessionid', '')
-        print(user)
-    
         request.session['message'] = user_message
 
         if "user" in request.session:
             details_flag = request.session["details_flag"]
             if details_flag:
-                print("details")
                 return details(request)
             
             book_flag = request.session["book_flag"]
             if book_flag <=3:
-                print("booker")
                 return booker(request)
             elif book_flag == 4:
-                print("doct_type_selector")
                 return doct_type_selector(request)
             elif book_flag == 5:
-                print("doctor_selector")
                 return doctor_selector(request)
             elif book_flag == 6:
-                print("date_finalize")
                 return date_finalize(request)
             elif book_flag == 7:
-                print("time_finalize")
                 return time_finalize(request)
             elif book_flag == 8:
-                print("finalize_booking")
                 return finalize_booking(request)   
 
             cancel_flag = request.session["cancel_flag"]
             if cancel_flag:
-                print("canceler")
                 return canceler(request)    
             
             change_flag = request.session["change_flag"]
             if change_flag:
-                print("rescheduler")
                 return rescheduler(request)    
             
             feedback = request.session["feedback"]
             if feedback:
-                print("feedbacker")
                 return feedbacker(request)  
                      
         intent = pred.predict_intent(user_message)

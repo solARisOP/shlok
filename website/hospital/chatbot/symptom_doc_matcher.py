@@ -5,7 +5,7 @@ import os
 
 from decouple import config
 
-llm = OpenAI(temperature=0.3, openai_api_key=config("best_offer"))
+llm = OpenAI(temperature=0.3, openai_api_key=os.environ["best_offer"])
 
 prompt = PromptTemplate.from_template("what type of doctor should i suggest if, {symptoms}")
 chain = LLMChain(llm = llm, prompt=prompt)
@@ -17,13 +17,12 @@ def predict_doc(symptoms):
     ans = ans.lower()
     i=1
     for doctor in doctors:
-        print(doctor)
         if doctor == "immunologist" or doctor == "obstetrician" or doctor == "maxillofacial":
             i -= 1
         if doctor in ans:
             return i
         i += 1
         
-    return 1
+    return i
     
 
