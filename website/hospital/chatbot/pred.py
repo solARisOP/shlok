@@ -5,10 +5,10 @@ import tensorflow_hub as hub
 from keras.models import load_model
 import numpy as np
 
-model = load_model(("E:/hospital-response/chatbot/models/final_h5.h5"), custom_objects={'KerasLayer':hub.KerasLayer}, compile=False)
-intents = ['fallback','service_completion','greeting','session_reschedule','session_cancelation','book_session','feedback', 'session_status']
+model = load_model(("chatbot\model\intent.h5"), custom_objects={'KerasLayer':hub.KerasLayer}, compile=False)
+intents = ['fallback','service_completion','greeting','session_reschedule','session_cancelation','book_session','feedback']
 
-sym_model = load_model(("E:/hospital-response/chatbot/models/symptom_h5.h5"), custom_objects={'KerasLayer':hub.KerasLayer}, compile=False)
+sym_model = load_model(("chatbot\model\symptom_h5.h5"), custom_objects={'KerasLayer':hub.KerasLayer}, compile=False)
 
 def predict_intent(text):
     x = model.predict([text])

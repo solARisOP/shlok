@@ -1,9 +1,11 @@
 from langchain.prompts import PromptTemplate
 from langchain.chains import LLMChain
 from langchain.llms import OpenAI
+import os
 
-key = "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"
-llm = OpenAI(temperature=0.3, openai_api_key=key)
+from decouple import config
+
+llm = OpenAI(temperature=0.3, openai_api_key=config("best_offer"))
 
 prompt = PromptTemplate.from_template("what type of doctor should i suggest if, {symptoms}")
 chain = LLMChain(llm = llm, prompt=prompt)
@@ -13,7 +15,6 @@ doctors = ["practitioner", "physician", "cardiologist", "gastroenterologist", "d
 def predict_doc(symptoms):
     ans = chain.run(symptoms)
     ans = ans.lower()
-    print(ans)
     i=1
     for doctor in doctors:
         print(doctor)

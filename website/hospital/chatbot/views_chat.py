@@ -18,7 +18,6 @@ default_template = '''\n
 "Booking your new appointment" \n
 "Cancel your appointment" \n
 "Reschedule your appointment" \n
-"details/status of the appointment you have booked" \n
 "Providing a feedback about your last visit" \n
 Please let me know about your request.
  '''
@@ -41,8 +40,8 @@ doct_types = '''1. General Practitioner (GP)\n
     16. Allergist/Immunologist\n
     17. Pulmonologist (lung and respiratory)\n
     18. Endocrinologist (Hormonal)\n
-    19. ENT Specialist (Ear, Nose, and Throat)\n \n
-'''
+    19. ENT Specialist (Ear, Nose, and Throat)\n \n '''
+
 def date_validate(date_obj):
 
     x = date_obj
@@ -92,13 +91,11 @@ def date_validate(date_obj):
     
     return date if date != "-1" else "-1"
     
-
 def new_user(request):
     request.session["user"] = True
     request.session["book_flag"] = 9
     request.session["cancel_flag"] = 0
     request.session["change_flag"] = 0
-    request.session["status_flag"] = 0
     request.session["feedback"] = 0
     request.session["details_flag"] = 0
 
@@ -248,7 +245,6 @@ def date_finalize(request):
     }
     return JsonResponse(response_data)
 
-
 def doctor_selector(request):
     message = request.session.get("message")
     if message.isdigit() and (int(message) > 0 and int(message) < 20):
@@ -350,7 +346,6 @@ def details(request):
     }
     return JsonResponse(response_data)
 
-
 def booker(request):
     if ("user" not in request.session):
         chatbot_response = "If you want to use our services through me please start by greeting me, then i would be very happy to assist you :-)"
@@ -420,7 +415,6 @@ def booker(request):
         "message": chatbot_response
     }
     return JsonResponse(response_data)       
-
 
 def canceler(request):
     if "user" not in request.session:
@@ -533,41 +527,6 @@ def rescheduler(request):
     }
     return JsonResponse(response_data)
 
-def status_checker(request):
-    if "user" not in request.session:
-        chatbot_response = "If you want to use our services through me please start by greeting me, then i would be very happy to assist you :-)"
-    else:
-        message = request.session["message"]
-        status_flag = request.session["status_flag"]
-        if(status_flag == 0):
-            chatbot_response = random.choice(response["session_reschedule"])
-            request.session["status_flag"] = 1
-        else:
-            if(message.isdigit() and len(message) == 7):
-                try:
-                    session_details = patient_sessions.objects.get(session_Id = message)
-                    date = session_details.session_date
-                    date = date.strftime("%d-%m-%Y")
-                    time = session_details.session_time
-                    time = dict(patient_sessions.time_fields).get(time)
-                    doc_id = session_details.doc_Id
-
-                    doctor = doctor_list.objects.get(Id = doc_id)
-                    doc_name = doctor.name
-                    chatbot_response = f'''Your have an appointment with Dr. {doc_name} on {date} at {time}'''
-                    request.session.clear()
-                except ObjectDoesNotExist:
-                    chatbot_response = '''Sorry! No record found.\n
-                                    Please enter a valid session Id'''
-            else:
-                chatbot_response = '''Wrong session Id.\n
-                            Please enter a valid session Id''' 
-                           
-    response_data = {
-        "message": chatbot_response
-    }
-    return JsonResponse(response_data)
-
 def fallbacker(request):
     if "user" in request.session:
         chatbot_response = "sorry can't understand, your request. You can ask for." + default_template
@@ -630,11 +589,6 @@ def chatbot(request):
                 print("rescheduler")
                 return rescheduler(request)    
             
-            status_flag = request.session["status_flag"]
-            if status_flag:
-                print("status_checker")
-                return status_checker(request)  
-            
             feedback = request.session["feedback"]
             if feedback:
                 print("feedbacker")
@@ -645,7 +599,6 @@ def chatbot(request):
         intent_func = {
             "greeting": greeter,
             "book_session": booker,
-            "session_status": status_checker,
             "session_reschedule": rescheduler,
             "session_cancelation": canceler,
             "feedback": feedbacker,
