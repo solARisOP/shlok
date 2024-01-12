@@ -75,6 +75,11 @@ WSGI_APPLICATION = 'hospital.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+# configurations for using pymysql for mysql django connector as mysqlclient is causing problems in deployment environment
+import pymysql
+
+pymysql.version_info = (1, 4, 6, 'final', 0)
+pymysql.install_as_MySQLdb()
 
 DATABASES = {
     'default': {
