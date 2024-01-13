@@ -1,28 +1,30 @@
 from langchain.prompts import PromptTemplate
 from langchain.chains import LLMChain
-from langchain.llms import OpenAI
+from langchain.llms.openai import OpenAI
 import os
 
-from decouple import config
+llm = OpenAI(temperature=0.3, openai_api_key=os.environ['best_offer'], model=os.environ["model"])
 
-llm = OpenAI(temperature=0.3, openai_api_key=os.environ["best_offer"])
+prompt = PromptTemplate.from_template('''check the following sentence and if the sentence is about medical symptoms then tell me what type of doctor
+ should i suggest and the doctor type should be among these("General practitioner", "physician", "cardiologist", "gastroenterologist", "dermatologist",
+ "neurologist", "orthopedic", "pediatrician", "gynecologist", "obstetrician", "urologist", "nephrologist", "psychiatrist", "dentist", "maxillofacial",
+ "physiotherapist", "ophthalmologist", "allergist", "immunologist", "pulmonologist", "endocrinologist", "ENT Specialist") or if the sentence is not about
+ symptoms say 'nope'. The sentence is '{symptoms}' ''')
 
-prompt = PromptTemplate.from_template("what type of doctor should i suggest if, {symptoms}")
 chain = LLMChain(llm = llm, prompt=prompt)
 
-doctors = ["practitioner", "physician", "cardiologist", "gastroenterologist", "dermatologist", "neurologist", "orthopedic", "pediatrician", "gynecologist", "obstetrician", "urologist", "nephrologist", "psychiatrist", "dentist", "maxillofacial", "physiotherapist", "ophthalmologist", "allergist", "immunologist", "pulmonologist", "endocrinologist", "ent"]
+doctors = ["General practitioner", "physician", "cardiologist", "gastroenterologist", "dermatologist", "neurologist", "orthopedic", "pediatrician", "gynecologist", "obstetrician", "urologist", "nephrologist", "psychiatrist", "dentist", "maxillofacial", "physiotherapist", "ophthalmologist", "allergist", "immunologist", "pulmonologist", "endocrinologist", "ENT Specialist"]
 
 def predict_doc(symptoms):
     ans = chain.run(symptoms)
-    ans = ans.lower()
-    i=1
-    for doctor in doctors:
-        if doctor == "immunologist" or doctor == "obstetrician" or doctor == "maxillofacial":
-            i -= 1
-        if doctor in ans:
-            return i
-        i += 1
-        
-    return i
+    ans = ans.strip()
+
+    if ans == 'nope':
+        return 0
+    
+    ind = doctors.index(ans)
+    if ans == "immunologist" or ans == "obstetrician" or ans == "maxillofacial":
+        ind-=1
+    return ind+1
     
 

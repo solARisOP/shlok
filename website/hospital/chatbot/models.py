@@ -40,7 +40,11 @@ class doctor_list(models.Model):
     experience = models.IntegerField(null=False)
     fees = models.CharField(max_length=4, null = False)
 
-class doctor_sessions(models.Model):
+    def __str__(self):
+        
+        return self.name + ' - ' + dict(self.feilds)[self.doc_type]
+    
+class doctor_session(models.Model):
     doc_Id = models.CharField(max_length=3, null=False)
     session_date = models.DateField(null=False)
 
@@ -53,11 +57,14 @@ class doctor_sessions(models.Model):
 
     session_count = models.IntegerField(default=0)
 
+    def __str__(self):
+        return self.doc_Id + ' - ' + str(self.session_date)
+
     class Meta:
         unique_together = ('session_time', 'session_date', 'doc_Id')
 
 
-class patient_sessions(models.Model):
+class patient_session(models.Model):
     doc_Id = models.CharField(max_length=3, null=False)
     session_Id = models.CharField(max_length=7, null=False, primary_key=True)
     pat_Id = models.CharField(max_length=5, null=False,)
@@ -68,6 +75,9 @@ class patient_sessions(models.Model):
         (17, "05:00 PM")
     )
     session_time = models.IntegerField(choices=time_fields, null=False)
+
+    def __str__(self):
+        return self.pat_Id + ' - ' + str(self.session_date)
 
 class patient_info(models.Model):
     Id = models.CharField(max_length=5, null=False, primary_key=True)
@@ -80,6 +90,10 @@ class patient_info(models.Model):
     gender = models.IntegerField(choices=gender_fields, null=False)
     DOB = models.DateField(null=False)
     phone = models.CharField(max_length=10, null=False)
+
+    def __str__(self):
+        return self.name + ' - ' + self.phone
+
 
 class feedback(models.Model):
     details = models.TextField()

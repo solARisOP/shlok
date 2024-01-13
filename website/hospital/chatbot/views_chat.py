@@ -4,7 +4,7 @@ from chatbot import symptom_doc_matcher
 from chatbot import pred
 import json
 import random
-from chatbot.models import doctor_list, doctor_sessions, patient_sessions, patient_info
+from chatbot.models import doctor_list, doctor_session, patient_session, patient_info
 import re
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
@@ -105,7 +105,7 @@ def finalize_booking(request):
         time_option = int(message)
         request.session["time"] = request.session['timmings'][time_option-1]
         try:
-            pat = patient_sessions.objects.latest('session_Id')
+            pat = patient_session.objects.latest('session_Id')
             session_Id = str(int(pat.session_Id) + 1)
         except ObjectDoesNotExist:
             session_Id = "1000001"
@@ -129,16 +129,16 @@ def finalize_booking(request):
                 Id = "10001"
             new_patient = patient_info(Id = Id, name = name, gender = gender, DOB = dob.date(), phone = phone)
             new_patient.save()
-        doc_session, created = doctor_sessions.objects.get_or_create(doc_Id = doctor, session_date = date_.date(), session_time = slot)
+        doc_session, created = doctor_session.objects.get_or_create(doc_Id = doctor, session_date = date_.date(), session_time = slot)
         doc_session.session_count += 1
         doc_session.save()
-        new_session = patient_sessions(doc_Id = doctor, session_Id = session_Id, pat_Id = Id, session_date = date_, session_time = slot)
+        new_session = patient_session(doc_Id = doctor, session_Id = session_Id, pat_Id = Id, session_date = date_, session_time = slot)
         new_session.save()
         date_ = date_.strftime("%d-%m-%Y")    
         date_ = date_.split(' ')[0]
         
         doct = doctor_list.objects.get(Id = doctor)
-        time_ = dict(doctor_sessions.time_fields).get(slot)
+        time_ = dict(doctor_session.time_fields).get(slot)
         chatbot_response = f'''Your appointment with Dr. {doct.name} has been booked on {date_} at {time_} and your Session Id is {session_Id}.\n
                             Please keep this Session-Id for future reference\n
                             '''
@@ -175,9 +175,9 @@ def time_finalize(request):
     else:
         Id = request.session["doc_ID"]
         
-        morn = doctor_sessions.objects.filter(doc_Id = Id, session_date = date.date(), session_time = 10, session_count = 9)
-        noon = doctor_sessions.objects.filter(doc_Id = Id, session_date = date.date(), session_time = 14, session_count = 6)
-        eve = doctor_sessions.objects.filter(doc_Id = Id, session_date = date.date(), session_time = 17, session_count = 6)
+        morn = doctor_session.objects.filter(doc_Id = Id, session_date = date.date(), session_time = 10, session_count = 9)
+        noon = doctor_session.objects.filter(doc_Id = Id, session_date = date.date(), session_time = 14, session_count = 6)
+        eve = doctor_session.objects.filter(doc_Id = Id, session_date = date.date(), session_time = 17, session_count = 6)
 
         date = date.strftime("%Y-%m-%d")
         request.session["booking_date"] = date.split(' ')[0]
@@ -213,9 +213,9 @@ def date_finalize(request):
     if message.isdigit() and (int(message) >0 and int(message) < 6):
         doc_option = int(message)
         Id = request.session["doctors"][doc_option-1]
-        morn = doctor_sessions.objects.filter(doc_Id = Id, session_time = 10, session_count = 9)
-        noon = doctor_sessions.objects.filter(doc_Id = Id, session_time = 14, session_count = 6)
-        eve = doctor_sessions.objects.filter(doc_Id = Id, session_time = 17, session_count = 6)
+        morn = doctor_session.objects.filter(doc_Id = Id, session_time = 10, session_count = 9)
+        noon = doctor_session.objects.filter(doc_Id = Id, session_time = 14, session_count = 6)
+        eve = doctor_session.objects.filter(doc_Id = Id, session_time = 17, session_count = 6)
 
         dates_morn = list(morn.values_list('session_date', flat= True))
         dates_noon = list(noon.values_list('session_date', flat= True))
@@ -384,8 +384,8 @@ def booker(request):
 
         elif (book_flag == 2):
             symptoms = message
-            if(pred.predict_symptom(symptoms)):
-                doctor = symptom_doc_matcher.predict_doc(symptoms)
+            doctor = symptom_doc_matcher.predict_doc(symptoms)
+            if doctor != 0:
                 chatbot_response = random.choice(response["symptoms"])
                 request.session["doc_type"] = doctor
                 chatbot_response = chatbot_response.replace("[doctor]", dict(doctor_list.feilds).get(doctor))
@@ -429,7 +429,7 @@ def canceler(request):
         elif(cancel_flag == 1):
             if(message.isdigit() and len(message) == 7):
                 try:
-                    sessions = patient_sessions.objects.get(session_Id = message)
+                    sessions = patient_session.objects.get(session_Id = message)
                     request.session["session_Id"] = message
                     chatbot_response = '''Are you sure you want to cancel your appointment\n
                                         1. YES\n
@@ -444,8 +444,8 @@ def canceler(request):
                             Please enter a valid session Id'''
         else:
             if(message == '1'):
-                session_delete = patient_sessions.objects.get(session_Id = request.session["session_Id"])
-                doc_session = doctor_sessions.objects.get(doc_Id = session_delete.doc_Id, session_date = session_delete.session_date, session_time = session_delete.session_time)
+                session_delete = patient_session.objects.get(session_Id = request.session["session_Id"])
+                doc_session = doctor_session.objects.get(doc_Id = session_delete.doc_Id, session_date = session_delete.session_date, session_time = session_delete.session_time)
                 doc_session.session_count -=1
                 session_delete.delete()
                 doc_session.save()
@@ -498,7 +498,7 @@ def rescheduler(request):
         elif(change_flag == 1):
             if(message.isdigit() and len(message) == 7):
                 try:
-                    session_details = patient_sessions.objects.get(session_Id = message)
+                    session_details = patient_session.objects.get(session_Id = message)
                     doc_id = session_details.doc_Id
                     pat_id = session_details.pat_Id
                     patient = patient_info.objects.get(Id = pat_id)
