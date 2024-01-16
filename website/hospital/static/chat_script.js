@@ -1,3 +1,34 @@
+window.onresize = ()=>{
+    var chatbotToggle = document.getElementById("chatbot-toggle");
+    var chatbotContainer = document.getElementById('chatbot-container');
+    if(window.innerWidth<=486){
+        chatbotToggle.style.bottom = "20px";
+        chatbotToggle.style.right = "0px";
+        chatbotToggle.style.left = "0px";
+        chatbotToggle.style.marginRight = "auto";
+        chatbotToggle.style.marginLeft = "auto";
+
+        chatbotContainer.style.bottom = "90px";
+        chatbotContainer.style.right = "0px";
+        chatbotContainer.style.left = "0px";
+        chatbotContainer.style.marginRight = "auto";
+        chatbotContainer.style.marginLeft = "auto";
+    }
+    else{
+        chatbotToggle.style.bottom = "80px";
+        chatbotToggle.style.marginLeft = "";
+        chatbotToggle.style.marginright = "";
+        chatbotToggle.style.right = "10px";
+        chatbotToggle.style.left = "";
+
+        chatbotContainer.style.bottom = "20px";
+        chatbotContainer.style.marginLeft = "";
+        chatbotContainer.style.marginright = "";
+        chatbotContainer.style.right = "85px";
+        chatbotContainer.style.left = "";
+    }
+}
+
 document.addEventListener('DOMContentLoaded', function () {
     const chatbotContainer = document.getElementById('chatbot-container');
     const chatbotToggle = document.getElementById('chatbot-toggle');
@@ -5,6 +36,20 @@ document.addEventListener('DOMContentLoaded', function () {
     const chatbotMessages = document.getElementById('chatbot-messages');
     const userInput = document.getElementById('user-input');
     const sendButton = document.getElementById('send-button');
+
+    if(window.innerWidth<=486){
+        chatbotToggle.style.bottom = "20px";
+        chatbotToggle.style.right = "0px";
+        chatbotToggle.style.left = "0px";
+        chatbotToggle.style.marginRight = "auto";
+        chatbotToggle.style.marginLeft = "auto";
+
+        chatbotContainer.style.bottom = "90px";
+        chatbotContainer.style.right = "0px";
+        chatbotContainer.style.left = "0px";
+        chatbotContainer.style.marginRight = "auto";
+        chatbotContainer.style.marginLeft = "auto";
+    }
 
     // Function to toggle the chatbot interface
     var chatbotVisible = 1
