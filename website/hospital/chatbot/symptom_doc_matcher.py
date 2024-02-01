@@ -13,12 +13,13 @@ prompt = PromptTemplate.from_template('''check the following sentence and if the
 
 chain = LLMChain(llm = llm, prompt=prompt)
 
-doctors = ["General practitioner", "physician", "cardiologist", "gastroenterologist", "dermatologist", "neurologist", "orthopedic", "pediatrician", "gynecologist", "obstetrician", "urologist", "nephrologist", "psychiatrist", "dentist", "maxillofacial", "physiotherapist", "ophthalmologist", "allergist", "immunologist", "pulmonologist", "endocrinologist", "ENT Specialist"]
+doctors = ["general practitioner", "physician", "cardiologist", "gastroenterologist", "dermatologist", "neurologist", "orthopedic", "pediatrician", "gynecologist", "obstetrician", "urologist", "nephrologist", "psychiatrist", "dentist", "maxillofacial", "physiotherapist", "ophthalmologist", "allergist", "immunologist", "pulmonologist", "endocrinologist", "ent specialist"]
 
 def predict_doc(symptoms):
     ans = chain.run(symptoms)
     ans = ans.strip()
-
+    ans = ans.lower()
+    
     if ans == 'nope':
         return 0
     
