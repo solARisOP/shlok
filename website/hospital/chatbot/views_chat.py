@@ -544,13 +544,22 @@ def completer(request):
     }
     return JsonResponse(response_data)
 
+intent_func = {
+            "greeting": greeter,
+            "book_session": booker,
+            "session_reschedule": rescheduler,
+            "session_cancelation": canceler,
+            "feedback": feedbacker,
+            "fallback": fallbacker,
+            "service_completion": completer,
+        }
+
 def chatbot(request):
     if request.method == 'POST':
         data = json.loads(request.body.decode('utf-8'))
         user_message = data.get('message', '')
         user = data.get('sessionid', '')
         request.session['message'] = user_message
-        return JsonResponse({'message' : user_message})
 
         if "user" in request.session:
             details_flag = request.session["details_flag"]
@@ -584,16 +593,6 @@ def chatbot(request):
                 return feedbacker(request)  
                      
         intent = pred.predict_intent(user_message)
-
-        intent_func = {
-            "greeting": greeter,
-            "book_session": booker,
-            "session_reschedule": rescheduler,
-            "session_cancelation": canceler,
-            "feedback": feedbacker,
-            "fallback": fallbacker,
-            "service_completion": completer,
-        }
 
         return intent_func[intent](request)
 

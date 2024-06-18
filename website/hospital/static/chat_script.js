@@ -100,10 +100,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     'X-CSRFToken': csrfToken,
                 },
             })
-                .then((response) => {
-                    console.log(response)
-                    return response.json()
-                })
+                .then((response) => response.json())
                 .then((data) => {
                     // Create a new message element for the chatbot's response
 
