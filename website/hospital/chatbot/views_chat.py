@@ -550,6 +550,7 @@ def chatbot(request):
         user_message = data.get('message', '')
         user = data.get('sessionid', '')
         request.session['message'] = user_message
+        return JsonResponse({'message' : user_message})
 
         if "user" in request.session:
             details_flag = request.session["details_flag"]
