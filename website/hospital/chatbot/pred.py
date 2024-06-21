@@ -2,6 +2,7 @@ import google.generativeai as genai
 import os
 
 genai.configure(api_key=os.environ["best_offer"])
+model = genai.GenerativeModel('gemini-1.5-flash')
 
 common_prompt = '''so i want you to recognise the intent of the sentence on the basis of a hospital website chatbot, and the intents are,
 a = "asking to book a doctors appointment/session", 
@@ -16,6 +17,6 @@ intents = {'a' : 'book_session', 'b' : 'session_reschedule', 'c' : 'session_canc
 
 def predict_intent(text):
     full_prompt = common_prompt.format(intent=text)
-    response = genai.generate_text(prompt=full_prompt)
-    ans = response.result.strip().lower().replace('*','')
-    intents[ans]
+    response = model.generate_content(full_prompt)
+    ans = response.candidates[0].content.parts[0].text.strip().lower().replace('*', '')
+    return intents[ans]

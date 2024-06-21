@@ -23,6 +23,7 @@ def predict_doc(symptoms):
     ind = doctors.index(ans)
     if ans == "immunologist" or ans == "obstetrician" or ans == "maxillofacial":
         ind-=1
+        
     return ind+1
 
 

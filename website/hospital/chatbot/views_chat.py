@@ -558,7 +558,6 @@ def chatbot(request):
     if request.method == 'POST':
         data = json.loads(request.body.decode('utf-8'))
         user_message = data.get('message', '')
-        user = data.get('sessionid', '')
         request.session['message'] = user_message
 
         if "user" in request.session:
@@ -593,7 +592,6 @@ def chatbot(request):
                 return feedbacker(request)  
                      
         intent = pred.predict_intent(user_message)
-
         return intent_func[intent](request)
 
     return JsonResponse({'error': 'Invalid request method'}, status=405)
